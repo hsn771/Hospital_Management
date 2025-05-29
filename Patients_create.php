@@ -56,7 +56,7 @@
                                 <div class="form-group">
                                     <label for="address">Address</label>
                                     <input type="text" class="form-control" id="address" name="address"
-                                        placeholder="Password">
+                                        placeholder="address">
                                 </div>
                                 <div class="form-group">
                                     <label for="emergency_contact">Emergency Contact</label>
@@ -64,14 +64,14 @@
                                         name="emergency_contact" placeholder="emergency_contact">
                                 </div>
                                 <div class="form-group">
-                                    <label for="nid_passport">NID No</label>
+                                    <label for="nid_passport">NID/Passport No</label>
                                     <input type="text" class="form-control" id="nid_passport" name="nid_passport"
                                         placeholder="nid_passport">
                                 </div>
                                 <div class="form-group">
-                                    <label for="insurance_provider">Insurance Provider</label>
-                                    <input type="text" class="form-control" id="insurance_provider"
-                                        name="insurance_provider" placeholder="insurance_provider">
+                                    <label for="insurance_provider">Insurance Id</label>
+                                    <input type="text" class="form-control" id="insurance_id"
+                                        name="insurance_id" placeholder="insurance_id">
                                 </div>
                                 <div class="form-group">
                                     <label for="allergies">Allergies</label>
@@ -115,6 +115,21 @@
                                     <label for="guardian_relation">Guardian Relation</label>
                                     <input type="text" class="form-control" id="guardian_relation"
                                         name="guardian_relation" placeholder="guardian_relation">
+                                </div>
+                                <div class="form-group">
+                                    <label for="guardian_relation">Division Id</label>
+                                    <input type="text" class="form-control" id="division_id"
+                                        name="division_id" placeholder="division_id">
+                                </div>
+                                <div class="form-group">
+                                    <label for="guardian_relation">District Id</label>
+                                    <input type="text" class="form-control" id="district_id"
+                                        name="district_id" placeholder="district_id">
+                                </div>
+                                <div class="form-group">
+                                    <label for="guardian_relation">Thana Id</label>
+                                    <input type="text" class="form-control" id="thana_id"
+                                        name="thana_id" placeholder="thana_id">
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
                             </form>

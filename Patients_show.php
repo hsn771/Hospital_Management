@@ -12,10 +12,10 @@
         <div class="row align-items-center">
             <div class="col-sm-6">
                 <div class="breadcrumbs-area clearfix">
-                    <h4 class="page-title pull-left">Dashboard</h4>
+                    <h4 class="page-title pull-left">Patiant Information</h4>
                     <ul class="breadcrumbs pull-left">
                         <li><a href="index.html">Home</a></li>
-                        <li><span>Dashboard</span></li>
+        
                     </ul>
                 </div>
             </div>
@@ -25,13 +25,13 @@
             if (!$data['error']) {
                 $patient = $data['data'][0];
             }
-            print_r($patient);
+            
             ?>
             <div class="col-sm-12 clearfix">
                 <div class="col-lg-12 mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">Patiant Details</h4>
+                            <h4 class="header-title">Patiant Details(Full)</h4>
                             <div class="single-table">
                                 <div class="table-responsive">
                                     <table class="table table-bordered text-center">
@@ -46,49 +46,86 @@
                                             </tr>
                                             <tr>
                                                 <th scope="col">Date of Birth</th>
-                                                <th scope="col">Phone No</th>
-                                                <th scope="col">Email</th>
-                                                <th scope="col">Address</th>
-                                                <th scope="col">Emergency Contact</th>
-                                                <th scope="col">NID No</th>
-                                                <th scope="col">Insurance Provider</th>
-                                                <th scope="col">Allergies</th>
-                                                <th scope="col">Registration Date</th>
-                                                <th scope="col">Profile Image</th>
-                                                <th scope="col">Marital Status</th>
-                                                <th scope="col">Occupation</th>
-                                                <th scope="col">Nationality</th>
-                                                <th scope="col">Guardian Name</th>
-                                                <th scope="col">Guardian Relation</th>
+                                                <td><?= $patient->date_of_birth ?></td>
                                             </tr>
+                                            <tr>
+                                                <th scope="col">Phone No</th>
+                                                <td><?= $patient->phone ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Email</th>
+                                                <td><?= $patient->email ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Address</th>
+                                                <td><?= $patient->address ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Emergency Contact</th>
+                                                <td><?= $patient->emergency_contact ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">NID/Passport No</th>
+                                                <td><?= $patient->nid_passport ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Insurance Id</th>
+                                                <td><?= $patient->insurance_id ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Allergies</th>
+                                                <td><?= $patient->allergies ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Registration Date</th>
+                                                <td><?= $patient->registration_date ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Profile Image</th>
+                                                <td><?= $patient->profile_image ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Marital Status<</th>
+                                                <td><?= $patient->marital_status ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Occupation</th>
+                                                <td><?= $patient->occupation ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Nationality</th>
+                                                <td><?= $patient->nationality ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Guardian Name</th>
+                                                <td><?= $patient->guardian_name ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Guardian Relation</th>
+                                                <td><?= $patient->guardian_relation ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Division Id</th>
+                                                <td><?= $patient->division_id ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">District Id</th>
+                                                <td><?= $patient->district_id ?></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="col">Thana Id</th>
+                                                <td><?= $patient->thana_id ?></td>
+                                            </tr>
+                                            
                                         </thead>
                                         <tbody>
 
-                                            <tr>
-                                                <td><?= ++$i ?></td>
-
-                                                <td><?= $d->gender ?></td>
-                                                <td><?= $d->date_of_birth ?></td>
-                                                <td><?= $d->phone ?></td>
-                                                <td><?= $d->email ?></td>
-                                                <td><?= $d->address ?></td>
-                                                <td><?= $d->emergency_contact ?></td>
-                                                <td><?= $d->nid_passport ?></td>
-                                                <td><?= $d->insurance_provider ?></td>
-                                                <td><?= $d->allergies ?></td>
-                                                <td><?= $d->registration_date ?></td>
-                                                <td><?= $d->profile_image ?></td>
-                                                <td><?= $d->marital_status ?></td>
-                                                <td><?= $d->occupation ?></td>
-                                                <td><?= $d->nationality ?></td>
-                                                <td><?= $d->guardian_name ?></td>
-                                                <td><?= $d->guardian_relation ?></td>
-                                                <td>
-                                                    <a href="<?= $baseurl ?>Patients_edit.php?id=<?= $d->id ?>"
+                    
+                                                    <a href="<?= $baseurl ?>Patients_edit.php?id=<?= $patient->id ?>"
                                                         class="btn btn-info btn-xs" title="Edit">
                                                         <i class="fa fa-edit"></i>
                                                     </a>
-                                                    <a href="<?= $baseurl ?>Patients_delete.php?id=<?= $d->id ?>"
+                                                    <a href="<?= $baseurl ?>Patients_delete.php?id=<?= $patient->id ?>"
                                                         class="btn btn-danger btn-xs" title="Delete">
                                                         <i class="fa fa-trash"></i>
                                                     </a>

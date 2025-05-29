@@ -12,10 +12,10 @@
         <div class="row align-items-center">
             <div class="col-sm-6">
                 <div class="breadcrumbs-area clearfix">
-                    <h4 class="page-title pull-left">Dashboard</h4>
+                    <h4 class="page-title pull-left">Patiant Information</h4>
                     <ul class="breadcrumbs pull-left">
                         <li><a href="index.html">Home</a></li>
-                        <li><span>Dashboard</span></li>
+        
                     </ul>
                 </div>
             </div>
@@ -23,7 +23,7 @@
                 <div class="col-lg-12 mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">Bordered Table</h4>
+                            <h4 class="header-title">Patiant Details</h4>
                             <div class="single-table">
                                 <div class="table-responsive">
                                     <table class="table table-bordered text-center">

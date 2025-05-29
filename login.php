@@ -1,7 +1,7 @@
-<?php 
+<?php
 session_start();
 require_once('class/crud.php');
-$mysqli= new crud();
+$mysqli = new crud();
 ?>
 <!doctype html>
 <html class="no-js" lang="en">
@@ -19,7 +19,8 @@ $mysqli= new crud();
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css">
     <link rel="stylesheet" href="assets/css/slicknav.min.css">
     <!-- amchart css -->
-    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
+        media="all" />
     <!-- others css -->
     <link rel="stylesheet" href="assets/css/typography.css">
     <link rel="stylesheet" href="assets/css/default-css.css">
@@ -64,7 +65,8 @@ $mysqli= new crud();
                             <div class="col-6">
                                 <div class="custom-control custom-checkbox mr-sm-2">
                                     <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                    <label class="custom-control-label" for="customControlAutosizing">Remember Me</label>
+                                    <label class="custom-control-label" for="customControlAutosizing">Remember
+                                        Me</label>
                                 </div>
                             </div>
                             <div class="col-6 text-right">
@@ -81,29 +83,29 @@ $mysqli= new crud();
                 </form>
             </div>
             <?php
-                      if($_POST){
-                        $_POST['password']=sha1($_POST['password']);
-                        $res=$mysqli->common_select('user','name,contact_no,email,is_active,role_id,status',$_POST);
-                        
-                        if($res['error']==0){
-                          if($res['data'][0]->is_active==0){
-                            echo "<script>alert('Your account is not active')</script>";
-                          }else if($res['data'][0]->status==0){
-                            echo "<script>alert('Your account is blocked')</script>";
-                          }else{
-                            $where=array('id'=>$res['data'][0]->role_id); 
-                            $role=$mysqli->common_select('role','name,slug',$where);
-                            $_SESSION['role']=$role['data'][0];
-                            $_SESSION['user']=$res['data'][0];
-                            $_SESSION['log_user_status']=true;
-                            echo "<script>location.href='dashboard.php'</script>";
-                          }
-                        }else{
-                          echo "<script>alert('Login Failed')</script>";
-                        }
-                        
-                      }
-                    ?>
+            if ($_POST) {
+                $_POST['password'] = sha1($_POST['password']);
+                $res = $mysqli->common_select('user', 'id,name,contact_no,email,is_active,role_id,status', $_POST);
+
+                if ($res['error'] == 0) {
+                    if ($res['data'][0]->is_active == 0) {
+                        echo "<script>alert('Your account is not active')</script>";
+                    } else if ($res['data'][0]->status == 0) {
+                        echo "<script>alert('Your account is blocked')</script>";
+                    } else {
+                        $where = array('id' => $res['data'][0]->role_id);
+                        $role = $mysqli->common_select('role', 'name,slug', $where);
+                        $_SESSION['role'] = $role['data'][0];
+                        $_SESSION['user'] = $res['data'][0];
+                        $_SESSION['log_user_status'] = true;
+                        echo "<script>location.href='dashboard.php'</script>";
+                    }
+                } else {
+                    echo "<script>alert('Login Failed')</script>";
+                }
+
+            }
+            ?>
         </div>
     </div>
     <!-- login area end -->
@@ -117,7 +119,7 @@ $mysqli= new crud();
     <script src="assets/js/metisMenu.min.js"></script>
     <script src="assets/js/jquery.slimscroll.min.js"></script>
     <script src="assets/js/jquery.slicknav.min.js"></script>
-    
+
     <!-- others plugins -->
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/scripts.js"></script>

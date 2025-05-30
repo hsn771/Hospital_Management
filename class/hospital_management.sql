@@ -251,7 +251,6 @@ CREATE TABLE `patients` (
   `blood_id` int(11) DEFAULT NULL,
   `emergency_contact` varchar(15) DEFAULT NULL,
   `nid_passport` varchar(30) DEFAULT NULL,
-  `insurance_provider` varchar(100) DEFAULT NULL,
   `insurance_id` varchar(50) DEFAULT NULL,
   `allergies` text DEFAULT NULL,
   `registration_date` date DEFAULT NULL,

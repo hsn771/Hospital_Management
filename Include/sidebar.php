@@ -1,7 +1,7 @@
 <div class="sidebar-menu">
             <div class="sidebar-header">
                 <div class="logo">
-                    <a href="index.html"><img src="assets/images/icon/logo.png" alt="logo"></a>
+                    <a href="index.html"><img src="assets/images/icon/Logo4.png" alt="Logo4"></a>
                 </div>
             </div>
             <div class="main-menu">
@@ -10,20 +10,16 @@
                         <ul class="metismenu" id="menu">
                             <li class="active">
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
-                                <ul class="collapse">
+                                <!-- <ul class="collapse">
                                     <li><a href="index.html">SEO dashboard</a></li>
-                                    <li class="active"><a href="index2.html">Ecommerce dashboard</a></li>
-                                    <li><a href="index3.html">ICO dashboard</a></li>
-                                </ul>
+                                    <li><a href="#">Ecommerce dashboard</a></li>
+                                    <li><a href="#">ICO dashboard</a></li>
+                                </ul> -->
                             </li>
                             <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-layout-sidebar-left"></i><span>Sidebar
-                                        Types
-                                    </span></a>
-                                <ul class="collapse">
-                                    <li><a href="index.html">Left Sidebar</a></li>
-                                    <li><a href="index3-horizontalmenu.html">Horizontal Sidebar</a></li>
-                                </ul>
+                                <a href="Patients.php" aria-expanded="true"><i class="ti-wheelchair"></i><span>Patient</span></a>
+                                    <!-- <li><a href="Patients.php"><i class="ti-hospital"></i>Patient</a></li> -->
+                                
                             </li>
                             <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Charts</span></a>

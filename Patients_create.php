@@ -69,7 +69,7 @@
                                         placeholder="nid_passport">
                                 </div>
                                 <div class="form-group">
-                                    <label for="insurance_provider">Insurance Id</label>
+                                    <label for="insurance_id">Insurance Id</label>
                                     <input type="text" class="form-control" id="insurance_id"
                                         name="insurance_id" placeholder="insurance_id">
                                 </div>
@@ -80,7 +80,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="registration_date">Registration Date</label>
-                                    <input type="data" class="form-control" id="registration_date"
+                                    <input type="date" class="form-control" id="registration_date"
                                         name="registration_date" placeholder="registration_date">
                                 </div>
                                 <div class="form-group">
@@ -117,19 +117,55 @@
                                         name="guardian_relation" placeholder="guardian_relation">
                                 </div>
                                 <div class="form-group">
-                                    <label for="guardian_relation">Division Id</label>
-                                    <input type="text" class="form-control" id="division_id"
-                                        name="division_id" placeholder="division_id">
+                                    <label for="guardian_relation">Division</label>
+                                    <select class="form-control" id="division_id" name="division_id" onchange="districtList(this.value)">
+                                        <option value="">Select Division</option>
+                                        <?php
+                                            $division=$mysqli->common_select('division','*');
+                                            if($division['error']==0){
+                                                    $division=$division['data'];
+                                                    foreach($division as $row){
+                                                        ?>
+                                                        <option value="<?= $row->id?>" ><?= $row->name ?></option>
+                                            <?php
+                                                    }
+                                                }
+                                            ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="guardian_relation">District Id</label>
-                                    <input type="text" class="form-control" id="district_id"
-                                        name="district_id" placeholder="district_id">
+                                    <label for="guardian_relation">District</label>
+                                    <select class="form-control" id="district_id" name="district_id" onchange="upazilaList(this.value)">
+                                        <option value="">Select District</option>
+                                        <?php
+                                            $district=$mysqli->common_select('district','*');
+                                            if($district['error']==0){
+                                                    $district=$district['data'];
+                                                    foreach($district as $row){
+                                                        ?>
+                                                        <option value="<?= $row->id?>" class="district <?= $row->division_id ?>" ><?= $row->name ?></option>
+                                            <?php
+                                                    }
+                                                }
+                                            ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="guardian_relation">Thana Id</label>
-                                    <input type="text" class="form-control" id="thana_id"
-                                        name="thana_id" placeholder="thana_id">
+                                    <label for="guardian_relation">Upazila</label>
+                                    <select class="form-control" id="upazila_id" name="upazila_id">
+                                        <option value="">Select Upazila</option>
+                                        <?php
+                                        $upazila=$mysqli->common_select('upazila','*');
+                                        if($upazila['error']==0){
+                                                    $upazila=$upazila['data'];
+                                                    foreach($upazila as $row){
+                                                        ?>
+                                                        <option value="<?= $row->id?>" class="upazila <?= $row->district_id ?>" ><?= $row->name ?></option>
+                                            <?php
+                                                    }
+                                                }
+                                            ?>
+                                    </select>
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
                             </form>
@@ -169,3 +205,24 @@
 </div>
 <!-- main content area end -->
 <?php include_once 'Include/footer.php'; ?>
+<script>
+function districtList(division_id) {
+    document.querySelectorAll('.district').forEach(function(item){
+        if(item.classList.contains(division_id)){
+            item.style.display = 'block';
+        }else{
+            item.style.display = 'none';
+        }
+    });
+}
+function upazilaList(district_id) {
+    document.querySelectorAll('.upazila').forEach(function(item){
+        if(item.classList.contains(district_id)){
+            item.style.display = 'block';
+        }else{
+            item.style.display = 'none';
+        }
+    });
+}
+   
+</script>

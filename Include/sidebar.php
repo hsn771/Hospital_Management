@@ -16,17 +16,17 @@
                                     <li><a href="#">ICO dashboard</a></li>
                                 </ul> -->
                             </li>
+                            
                             <li>
-                                <a href="Patients.php" aria-expanded="true"><i class="ti-wheelchair"></i><span>Patient</span></a>
-                                    <!-- <li><a href="Patients.php"><i class="ti-hospital"></i>Patient</a></li> -->
-                                
-                            </li>
-                            <li>
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Charts</span></a>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Appointment</span></a>
                                 <ul class="collapse">
-                                    <li><a href="barchart.html">bar chart</a></li>
-                                    <li><a href="linechart.html">line Chart</a></li>
-                                    <li><a href="piechart.html">pie chart</a></li>
+                                    <li><a href="appointments.php">List</a></li>
+                                    <li><a href="appointments_create.php">Add New</a></li>
+                                </ul>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Patient</span></a>
+                                <ul class="collapse">
+                                    <li><a href="Patients.php">List</a></li>
+                                    <li><a href="Patients_create.php">Add New</a></li>
                                 </ul>
                             </li>
                             <li>

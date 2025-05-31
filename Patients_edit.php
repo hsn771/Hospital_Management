@@ -41,9 +41,9 @@
                                 <div class="form-group">
                                     <label for="gender">Gender</label>
                                     <select class="form-control" id="gender" value="<?= $data->gender ?>" name="gender" aria-describedby="emailHelp">
-                                        <option value="Male">Male</option>
-                                        <option value="Female">Female</option>
-                                        <option value="Other">Other</option>
+                                        <option value="Male" <?= $data->gender=="Male"?"selected":"" ?>>Male</option>
+                                        <option value="Female" <?= $data->gender=="Female"?"selected":"" ?>>Female</option>
+                                        <option value="Other" <?= $data->gender=="Other"?"selected":"" ?>>Other</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -100,8 +100,8 @@
                                     <label for="marital_status">Marital Status</label>
                                     <select class="form-control" id="marital_status" value="<?= $data->marital_status ?>" name="marital_status"
                                         aria-describedby="emailHelp">
-                                        <option value="Married">Married</option>
-                                        <option value="Unmarried">Unmarried</option>
+                                        <option value="Married" <?= $data->gender=="Married"?"selected":"" ?>>Married</option>
+                                        <option value="Unmarried" <?= $data->gender=="Unmarried"?"selected":"" ?>>Unmarried</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -125,19 +125,55 @@
                                         name="guardian_relation" placeholder="guardian_relation">
                                 </div>
                                 <div class="form-group">
-                                    <label for="guardian_relation">Division Id</label>
-                                    <input type="text" class="form-control" id="division_id" value="<?= $data->division_id ?>"
-                                        name="division_id" placeholder="division_id">
+                                    <label for="guardian_relation">Division</label>
+                                    <select class="form-control" id="division_id" name="division_id" onchange="districtList(this.value)">
+                                        <option value="">Select Division</option>
+                                        <?php
+                                            $division=$mysqli->common_select('division','*');
+                                            if($division['error']==0){
+                                                    $division=$division['data'];
+                                                    foreach($division as $row){
+                                                        ?>
+                                                        <option value="<?= $row->id?>" <?= $row->id==$data->division_id?"selected":"" ?>><?= $row->name ?></option>
+                                            <?php
+                                                    }
+                                                }
+                                            ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="guardian_relation">District Id</label>
-                                    <input type="text" class="form-control" id="district_id" value="<?= $data->district_id ?>"
-                                        name="district_id" placeholder="district_id">
+                                    <label for="guardian_relation">District</label>
+                                    <select class="form-control" id="district_id" name="district_id" onchange="upazilaList(this.value)">
+                                        <option value="">Select District</option>
+                                        <?php
+                                            $district=$mysqli->common_select('district','*');
+                                            if($district['error']==0){
+                                                    $district=$district['data'];
+                                                    foreach($district as $row){
+                                                        ?>
+                                                        <option value="<?= $row->id?>" <?= $row->id==$data->district_id?"selected":"" ?> class="district <?= $row->division_id ?>" ><?= $row->name ?></option>
+                                            <?php
+                                                    }
+                                                }
+                                            ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="guardian_relation">Thana Id</label>
-                                    <input type="text" class="form-control" id="thana_id" value="<?= $data->thana_id ?>"
-                                        name="thana_id" placeholder="thana_id">
+                                    <label for="guardian_relation">Upazila</label>
+                                    <select class="form-control" id="upazila_id" name="upazila_id">
+                                        <option value="">Select Upazila</option>
+                                        <?php
+                                        $upazila=$mysqli->common_select('upazila','*');
+                                        if($upazila['error']==0){
+                                                    $upazila=$upazila['data'];
+                                                    foreach($upazila as $row){
+                                                        ?>
+                                                        <option value="<?= $row->id?>" <?= $row->id==$data->upazila_id?"selected":"" ?> class="upazila <?= $row->district_id ?>" ><?= $row->name ?></option>
+                                            <?php
+                                                    }
+                                                }
+                                            ?>
+                                    </select>
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
                             </form>
@@ -166,3 +202,27 @@
 </div>
 <!-- main content area end -->
 <?php include_once 'Include/footer.php'; ?>
+
+<script>
+function districtList(division_id) {
+    document.querySelectorAll('.district').forEach(function(item){
+        if(item.classList.contains(division_id)){
+            item.style.display = 'block';
+        }else{
+            item.style.display = 'none';
+        }
+    });
+}
+function upazilaList(district_id) {
+    document.querySelectorAll('.upazila').forEach(function(item){
+        if(item.classList.contains(district_id)){
+            item.style.display = 'block';
+        }else{
+            item.style.display = 'none';
+        }
+    });
+}
+//auto fill upazila
+districtList(<?= $data->division_id ?>);
+upazilaList(<?= $data->district_id ?>);
+</script>

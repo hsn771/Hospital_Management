@@ -20,8 +20,10 @@
                 </div>
             </div>
             <?php
-            $where['id'] = $_GET['id'];
-            $data = $mysqli->common_select('patients', '*', $where);
+            $id= $_GET['id'];
+            $data = $mysqli->common_query("SELECT patients.*,division.name as division_name,district.name as district_name,upazila.name as upazila_name FROM `patients` JOIN division on division.id=patients.division_id JOIN district on district.id=patients.district_id JOIN upazila on upazila.id=patients.upazila_id WHERE patients.id=$id");
+            $patient = [];
+            
             if (!$data['error']) {
                 $patient = $data['data'][0];
             }
@@ -106,15 +108,15 @@
                                             </tr>
                                             <tr>
                                                 <th scope="col">Division Id</th>
-                                                <td><?= $patient->division_id ?></td>
+                                                <td><?= $patient->division_name ?></td>
                                             </tr>
                                             <tr>
                                                 <th scope="col">District Id</th>
-                                                <td><?= $patient->district_id ?></td>
+                                                <td><?= $patient->district_name ?></td>
                                             </tr>
                                             <tr>
-                                                <th scope="col">Thana Id</th>
-                                                <td><?= $patient->thana_id ?></td>
+                                                <th scope="col">Upazila</th>
+                                                <td><?= $patient->upazila_name ?></td>
                                             </tr>
                                             
                                         </thead>

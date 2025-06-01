@@ -18,12 +18,27 @@
                             </li>
                             
                             <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Appointment</span></a>
+                                <ul class="collapse">
+                                    <li><a href="appointments.php">List</a></li>
+                                    <li><a href="appointments_create.php">Add New</a></li>
+                                </ul>
+                            </li>
+                            <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Patient</span></a>
                                 <ul class="collapse">
                                     <li><a href="Patients.php">List</a></li>
                                     <li><a href="Patients_create.php">Add New</a></li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Admissions</span></a>
+                                <ul class="collapse">
+                                    <li><a href="addmissions.php">List</a></li>
+                                    <li><a href="addmissions_create.php">Add New</a></li>
+                                </ul>
+                            </li>
+                            
                             <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>UI Features</span></a>
                                 <ul class="collapse">

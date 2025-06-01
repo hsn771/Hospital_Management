@@ -69,7 +69,7 @@
                                         placeholder="nid_passport">
                                 </div>
                                 <div class="form-group">
-                                    <label for="insurance_provider">Insurance Id</label>
+                                    <label for="insurance_id">Insurance Id</label>
                                     <input type="text" class="form-control" id="insurance_id"
                                         name="insurance_id" placeholder="insurance_id">
                                 </div>

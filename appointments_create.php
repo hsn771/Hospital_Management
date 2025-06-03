@@ -26,29 +26,52 @@
                             <h4 class="header-title">Appointment Form</h4>
                             <form method="post" enctype="multipart/form-data" action="">
                                 <div class="form-group">
-                                    <label for="patient_id">Patient Id</label>
-                                    <input type="number" class="form-control" id="patient_id" name="patient_id"
-                                        aria-describedby="emailHelp">
+                                    <label for="patient_id">Patient</label>
+                                    <select class="form-control" id="patient_id" name="patient_id">
+                                        <?php
+                                        $res = $mysqli->common_select('patients');
+                                        if (!$res['error']) {
+                                            foreach ($res['data'] as $key => $value) {
+                                                echo '<option value="' . $value->id . '">' . $value->full_name . '</option>';
+                                                }
+                                            }
+                                        ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="gender">Staff Id</label>
-                                     <input type="number" class="form-control" id="staff_id" name="staff_id"
-                                        aria-describedby="emailHelp">
+                                    <label for="gender">Staff</label>
+                                    <select class="form-control" id="staff_id" name="staff_id">
+                                        <?php
+                                        $res = $mysqli->common_select('user');
+                                        if (!$res['error']) {
+                                            foreach ($res['data'] as $key => $value) {
+                                                echo '<option value="' . $value->id . '">' . $value->name . '</option>';
+                                                }
+                                            }
+                                        ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="date_of_birth">Room Id</label>
-                                    <input type="number" class="form-control" id="room_id" name="room_id"
-                                        aria-describedby="emailHelp">
+                                    <label for="date_of_birth">Room</label>
+                                    <select class="form-control" id="room_id" name="room_id">
+                                        <?php
+                                        $res = $mysqli->common_select('rooms');
+                                        if (!$res['error']) {
+                                            foreach ($res['data'] as $key => $value) {
+                                                echo '<option value="' . $value->id . '">' . $value->room_number . '</option>';
+                                                }
+                                            }
+                                        ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone">appointment_date</label>
+                                    <label for="phone">Appointment Date</label>
                                     <input type="date" class="form-control" id="appointment_date" name="appointment_date"
                                         aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">start_time</label>
-                                    <input type="time" class="form-control" id="start_time" name="start_time"
-                                        aria-describedby="emailHelp">
+                                    <label for="email">Start Time</label>
+                                    <input type="time" class="form-control" id="start_time" name="start_time">
                                 </div>
                                 <div class="form-group">
                                     <label for="address">Purpose</label>

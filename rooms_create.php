@@ -26,11 +26,6 @@
                             <h4 class="header-title">Room Form</h4>
                             <form method="post" enctype="multipart/form-data" action="">
                                 <div class="form-group">
-                                    <label for="id">Id</label>
-                                    <input type="number" class="form-control" id="id" name="id"
-                                        aria-describedby="emailHelp">
-                                </div>
-                                <div class="form-group">
                                     <label for="room_number">Room Number</label>
                                      <input type="number" class="form-control" id="room_number" name="room_number"
                                         aria-describedby="emailHelp">

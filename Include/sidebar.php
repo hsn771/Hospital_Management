@@ -23,10 +23,40 @@
                                     <li><a href="appointments.php">List</a></li>
                                     <li><a href="appointments_create.php">Add New</a></li>
                                 </ul>
+                            </li>
+                            <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Patient</span></a>
                                 <ul class="collapse">
                                     <li><a href="Patients.php">List</a></li>
                                     <li><a href="Patients_create.php">Add New</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Admissions</span></a>
+                                <ul class="collapse">
+                                    <li><a href="addmissions.php">List</a></li>
+                                    <li><a href="addmissions_create.php">Add New</a></li>
+                                </ul>
+                            </li>
+                             <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Rooms</span></a>
+                                <ul class="collapse">
+                                    <li><a href="rooms.php">List</a></li>
+                                    <li><a href="rooms_create.php">Add New</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Prescriptions</span></a>
+                                <ul class="collapse">
+                                    <li><a href="prescriptions.php">List</a></li>
+                                    <li><a href="prescriptions_create.php">Add New</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Prescriptions Details</span></a>
+                                <ul class="collapse">
+                                    <li><a href="prescriptions_details.php">List</a></li>
+                                    <li><a href="prescriptions_details_create.php">Add New</a></li>
                                 </ul>
                             </li>
                             <li>

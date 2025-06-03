@@ -23,7 +23,7 @@
                 <div class="col-12 mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">Appointment Form</h4>
+                            <h4 class="header-title">Admission Form</h4>
                             <form method="post" enctype="multipart/form-data" action="">
                                 <div class="form-group">
                                     <label for="patient_id">Patient</label>
@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="gender">Staff</label>
-                                    <select class="form-control" id="staff_id" name="staff_id">
+                                     <select class="form-control" id="staff_id" name="staff_id">
                                         <?php
                                         $res = $mysqli->common_select('user');
                                         if (!$res['error']) {
@@ -65,17 +65,18 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone">Appointment Date</label>
-                                    <input type="date" class="form-control" id="appointment_date" name="appointment_date"
+                                    <label for="Admission Date">Admission Date</label>
+                                    <input type="date" class="form-control" id="admission_date" name="admission_date"
                                         aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Start Time</label>
-                                    <input type="time" class="form-control" id="start_time" name="start_time">
+                                    <label for="Discharge Date">Discharge Date</label>
+                                    <input type="date" class="form-control" id="discharge_date" name="discharge_date"
+                                        aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
-                                    <label for="address">Purpose</label>
-                                    <input type="text" class="form-control" id="purpose" name="purpose">
+                                    <label for="Reason">Reason</label>
+                                    <input type="text" class="form-control" id="reason" name="reason">
                                 </div>
                                 <div class="form-group">
                                     <label for="text">notes</label>
@@ -83,44 +84,58 @@
                                         name="notes" placeholder="notes">
                                 </div>
                                 <div class="form-group">
-                                    <label for="nid_passport">appointment_type</label>
-                                    <select class="form-control" id="appointment_type" name="appointment_type" aria-describedby="emailHelp">
-                                        <option value="New Patient">New Patient</option>
-                                        <option value="Follow-up">Follow-up</option>
-                                        <option value="Emergency">Emergency</option>
-                                        <option value="Routine/Check-up">Routine/Check-up</option>
+                                    <label for="Initial Diagnosis">Initial Diagnosis</label>
+                                    <input type="text" class="form-control" id="initial_diagnosis"
+                                        name="initial_diagnosis" placeholder="initial_diagnosis">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Treatment Plan">Treatment Plan</label>
+                                    <input type="text" class="form-control" id="treatment_plan"
+                                        name="treatment_plan" placeholder="treatment_plan">
+                                </div>
+                                <div class="form-group">
+                                    <label for="Nurse Id">Nurse Id</label>
+                                    <select class="form-control" id="nurse_id" name="nurse_id">
+                                        <?php
+                                        $res = $mysqli->common_select('nurse');
+                                        if (!$res['error']) {
+                                            foreach ($res['data'] as $key => $value) {
+                                                echo '<option value="' . $value->id . '">' . $value->room_number . '</option>';
+                                                }
+                                            }
+                                        ?>
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="insurance_id">Patient Temperature</label>
-                                    <input type="text" class="form-control" id="patient_temperature"
-                                        name="patient_temperature" placeholder="patient_temperature">
-                                </div>
-                                <div class="form-group">
-                                    <label for="bp_reading">Bp Reading</label>
-                                    <input type="text" class="form-control" id="bp_reading" name="bp_reading"
-                                        placeholder="bp_reading">
-                                </div>
-                                <div class="form-group">
-                                    <label for="registration_date">heart_rate</label>
-                                    <input type="text" class="form-control" id="heart_rate"
-                                        name="heart_rate" placeholder="heart_rate">
+                                    <label for="Notes">Notes</label>
+                                    <input type="text" class="form-control" id="notes"
+                                        name="notes" placeholder="notes">
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="source">Source</label>
-                                    <input type="text" class="form-control" id="source" name="source"
+                                    <label for="Consulting Doctor">Consulting Doctor</label>
+                                    <input type="text" class="form-control" id="consulting_doctor" name="consulting_doctor"
                                         placeholder="profile_image">
                                 </div>
                                 <div class="form-group">
-                                    <label for="follow_up">Follow Up</label>
-                                    <input type="text" class="form-control" id="follow_up_required" name="follow_up_required"
-                                        placeholder="follow_up">
+                                    <label for="Is Critical">Is Critical</label>
+                                    <input type="text" class="form-control" id="is_critical" name="is_critical"
+                                        placeholder="is_critical">
                                 </div>
                                 <div class="form-group">
-                                    <label for="serial_no">Serial No</label>
-                                    <input type="text" class="form-control" id="serial_no" name="serial_no"
-                                        placeholder="serial_no">
+                                    <label for="Has Attendant">Has Attendant</label>
+                                    <input type="text" class="form-control" id="has_attendant" name="has_attendant"
+                                        placeholder="has_attendant">
+                                </div>
+                                 <div class="form-group">
+                                    <label for="Has Attendant">Attendant Name</label>
+                                    <input type="text" class="form-control" id="attendant_name" name="attendant_name"
+                                        placeholder="attendant_name">
+                                </div>
+                                 <div class="form-group">
+                                    <label for="Discharge Summary">Discharge Summary</label>
+                                    <input type="text" class="form-control" id="discharge_summary" name="discharge_summary"
+                                        placeholder="discharge_summary">
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
                             </form>
@@ -131,9 +146,9 @@
                                 $_POST['created_at'] = date('Y-m-d H:i:s');
                                 $_POST['created_by'] = $_SESSION['user']->id;
                                 $_POST['status'] = 1;
-                                $res = $mysqli->common_insert('appointments', $_POST);
+                                $res = $mysqli->common_insert('addmissions', $_POST);
                                 if (!$res['error']) {
-                                    echo "<script>location.href='" . $baseurl . "appointments.php'</script>";
+                                    echo "<script>location.href='" . $baseurl . "addmissions.php'</script>";
                                 } else {
                                     echo $res['error_msg'];
                                 }

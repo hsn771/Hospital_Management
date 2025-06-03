@@ -24,8 +24,7 @@
                 </div>
             </div>
             <!-- page title area end -->
-            <div class="main-content-inner">
-                
+            <div class="main-content-inner">  
             </div>
         </div>
         <!-- main content area end -->

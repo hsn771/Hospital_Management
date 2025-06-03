@@ -32,13 +32,29 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="room_type_id">Room Type Id</label>
-                                    <input type="number" class="form-control" id="room_type_id" name="room_type_id"
-                                        aria-describedby="emailHelp">
+                                    <select class="form-control" id="room_id" name="room_id">
+                                        <?php
+                                        $res = $mysqli->common_select('rooms');
+                                        if (!$res['error']) {
+                                            foreach ($res['data'] as $key => $value) {
+                                                echo '<option value="' . $value->id . '">' . $value->room_number . '</option>';
+                                                }
+                                            }
+                                        ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="department_id">Department Id</label>
-                                    <input type="number" class="form-control" id="department_id" name="department_id"
-                                        aria-describedby="emailHelp">
+                                    <select class="form-control" id="room_id" name="room_id">
+                                        <?php
+                                        $res = $mysqli->common_select('departments');
+                                        if (!$res['error']) {
+                                            foreach ($res['data'] as $key => $value) {
+                                                echo '<option value="' . $value->id . '">' . $value->department_name . '</option>';
+                                                }
+                                            }
+                                        ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="capacity">capacity</label>

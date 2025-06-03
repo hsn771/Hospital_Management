@@ -38,7 +38,27 @@
                                     <li><a href="addmissions_create.php">Add New</a></li>
                                 </ul>
                             </li>
-                            
+                             <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Rooms</span></a>
+                                <ul class="collapse">
+                                    <li><a href="rooms.php">List</a></li>
+                                    <li><a href="rooms_create.php">Add New</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Prescriptions</span></a>
+                                <ul class="collapse">
+                                    <li><a href="prescriptions.php">List</a></li>
+                                    <li><a href="prescriptions_create.php">Add New</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Prescriptions Details</span></a>
+                                <ul class="collapse">
+                                    <li><a href="prescriptions_details.php">List</a></li>
+                                    <li><a href="prescriptions_details_create.php">Add New</a></li>
+                                </ul>
+                            </li>
                             <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-palette"></i><span>UI Features</span></a>
                                 <ul class="collapse">

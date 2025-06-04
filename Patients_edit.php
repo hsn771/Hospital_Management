@@ -179,6 +179,14 @@
                             </form>
                             <?php
                       if($_POST){
+                        if ($_FILES) {
+                                    $img = $_FILES["profile_image"];
+                                    $location = "uploads/patient/" . time() . rand(1111, 9999) . $img['name'];
+                                    $rs = move_uploaded_file($img['tmp_name'], $location);
+                                    if ($rs) {
+                                        $_POST['profile_image'] = $location;
+                                    }
+                                }
                         $_POST['updated_at']=date('Y-m-d H:i:s');
                         $_POST['updated_by']=$_SESSION['user']->id;
                         $res=$mysqli->common_update('patients',$_POST,$where);

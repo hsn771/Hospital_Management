@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2025 at 05:34 PM
+-- Generation Time: Jun 04, 2025 at 07:11 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admissions`
+-- Table structure for table `addmissions`
 --
 
-CREATE TABLE `admissions` (
+CREATE TABLE `addmissions` (
   `id` int(11) NOT NULL,
   `patient_id` int(11) DEFAULT NULL,
   `room_id` int(11) DEFAULT NULL,
@@ -51,6 +51,17 @@ CREATE TABLE `admissions` (
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `addmissions`
+--
+
+INSERT INTO `addmissions` (`id`, `patient_id`, `room_id`, `staff_id`, `admission_date`, `discharge_date`, `reason`, `insurance_approval`, `initial_diagnosis`, `treatment_plan`, `nurse_id`, `notes`, `consulting_doctor`, `is_critical`, `has_attendant`, `attendant_name`, `discharge_summary`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(1, 1, 0, 0, '2025-06-01 00:00:00', '2025-06-03 00:00:00', 'gnbfg', NULL, 'fgnf', 'gfnf', 0, '', 0, 0, 0, 'ghfg', 'ngfn', 0, '2025-06-01 06:40:41', '2025-06-01 06:45:22', 1, 1),
+(2, 1, 0, 0, '2025-06-01 00:00:00', '2025-06-03 00:00:00', 'gnbfg', NULL, 'fgnf', 'gfnf', 0, '', 0, 0, 0, 'ghfg', 'ngfn', 0, '2025-06-01 06:40:52', '2025-06-01 06:45:21', 1, 1),
+(3, 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', NULL, '', '', 0, '', 0, 0, 0, '', '', 0, '2025-06-01 06:42:07', '2025-06-01 06:45:20', 1, 1),
+(4, 1, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', NULL, '', '', 0, '', 0, 0, 0, '', '', 0, '2025-06-01 06:42:24', '2025-06-01 06:45:19', 1, 1),
+(5, 1, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', NULL, '', '', 0, '', 0, 0, 0, '', '', 0, '2025-06-01 06:45:32', '2025-06-01 06:45:40', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -88,7 +99,8 @@ CREATE TABLE `appointments` (
 --
 
 INSERT INTO `appointments` (`id`, `patient_id`, `staff_id`, `room_id`, `appointment_date`, `start_time`, `purpose`, `notes`, `appointment_type`, `confirmation_code`, `is_emergency`, `patient_temperature`, `bp_reading`, `heart_rate`, `source`, `follow_up_required`, `serial_no`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(1, 1, 0, 0, '2025-05-15', '21:32:00', 'fev', 'dfv', 'Routine/Check-up', NULL, NULL, 45.0, '45', 34, 'dfvdf', 0, 0, 0, '2025-05-31 17:32:32', '2025-05-31 17:33:43', 1, 1);
+(1, 1, 0, 0, '2025-05-15', '21:32:00', 'fev', 'dfv', 'Routine/Check-up', NULL, NULL, 45.0, '45', 34, 'dfvdf', 0, 0, 0, '2025-05-31 17:32:32', '2025-05-31 17:33:43', 1, 1),
+(2, 1, 0, 0, '2025-06-16', '09:39:00', 'fb', 'fb', 'Routine/Check-up', NULL, NULL, 45.0, '45', 45, 'fdb', 0, 5, 1, '2025-06-01 05:40:16', NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -366,7 +378,8 @@ CREATE TABLE `patients` (
 INSERT INTO `patients` (`id`, `full_name`, `gender`, `date_of_birth`, `phone`, `email`, `division_id`, `district_id`, `upazila_id`, `address`, `blood_id`, `emergency_contact`, `nid_passport`, `insurance_id`, `allergies`, `registration_date`, `profile_image`, `marital_status`, `occupation`, `nationality`, `guardian_name`, `guardian_relation`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
 (1, 'Ibrahim khalil', 'Male', '2025-05-31', '0156669998', 'kamal@yahoo.com', 1, 8, 78, '2no Gate', NULL, '111111111111111', '111111111111111111111111', 'asdf', 'asdf', '2025-05-31', NULL, 'Married', 'asdf', 'asdf', 'asdf', 'asdf', 0, '2025-05-31 06:16:27', '2025-05-31 06:33:49', 1, 0),
 (2, 'Hasan', 'Male', '1996-07-09', '01625142403', 'hasan@gmail.com', 1, 8, 72, 'Halishahar', NULL, '015', '1123', '112', 'Fever', '2025-03-20', 'uploads/patient/1748695845155517485263917442ME.jpg', 'Married', 'Student', 'Bangladesh', 'Harun Rashid', 'Father', 0, '2025-05-31 14:50:45', '2025-05-31 15:04:11', 1, 1),
-(3, 'Rakib', 'Male', '2025-05-06', '013', 'jesan@gmail.com', 1, 10, 94, 'Halishahar', NULL, '016', '1234', '12345', 'Fever', '2025-05-02', 'uploads/patient/1748696617138317486630588904man.jpg', 'Married', 'Student', 'Bangladesh', 'Jesan', 'Father', 1, '2025-05-31 15:03:37', NULL, 1, NULL);
+(3, 'Rakib', 'Male', '2025-05-06', '013', 'jesan@gmail.com', 1, 10, 94, 'Halishahar', NULL, '016', '1234', '12345', 'Fever', '2025-05-02', 'uploads/patient/1748696617138317486630588904man.jpg', 'Married', 'Student', 'Bangladesh', 'Jesan', 'Father', 1, '2025-05-31 15:03:37', NULL, 1, NULL),
+(4, 'Naeem', 'Male', '0000-00-00', '', '', 0, 0, 0, '', NULL, '', '', '', '', '0000-00-00', 'uploads/patient/17490123107621pexels-photo-757889.jpeg', 'Married', '', '', '', '', 0, '2025-06-04 06:37:32', '2025-06-04 06:45:52', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -1180,9 +1193,9 @@ CREATE TABLE `users` (
 --
 
 --
--- Indexes for table `admissions`
+-- Indexes for table `addmissions`
 --
-ALTER TABLE `admissions`
+ALTER TABLE `addmissions`
   ADD PRIMARY KEY (`id`),
   ADD KEY `patient_id` (`patient_id`),
   ADD KEY `room_id` (`room_id`),
@@ -1356,16 +1369,16 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `admissions`
+-- AUTO_INCREMENT for table `addmissions`
 --
-ALTER TABLE `admissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `addmissions`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `appointments`
 --
 ALTER TABLE `appointments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `billing`
@@ -1395,7 +1408,7 @@ ALTER TABLE `lab_reports`
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `prescriptions`

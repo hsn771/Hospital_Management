@@ -31,7 +31,7 @@
                                     
                                 </div>
                                 <div class="form-group">
-                                    <label for="department_id">department_id</label>
+                                    <label for="department_id">Department Id</label>
                                     <select class="form-control" id="department_id" name="department_id">
                                         <?php
                                         $res = $mysqli->common_select('departments');
@@ -48,106 +48,106 @@
                                     <input type="text" class="form-control" id="specialization" name="specialization">
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone">phone</label>
+                                    <label for="phone">Phone</label>
                                     <input type="number" class="form-control" id="phone" name="phone"
                                         aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">email</label>
+                                    <label for="email">Email</label>
                                     <input type="email" class="form-control" id="email" name="email">
                                 </div>
                                 <div class="form-group">
-                                    <label for="join_date">join_date</label>
+                                    <label for="join_date">Join Date</label>
                                     <input type="date" class="form-control" id="join_date" name="join_date">
                                 </div>
                                 <div class="form-group">
-                                    <label for="shift_id">shift_id</label>
+                                    <label for="shift_id">Shift Id</label>
                                     <input type="number" class="form-control" id="shift_id"
                                         name="shift_id">
                                 </div>
                                 <div class="form-group">
-                                    <label for="license_number">license_number</label>
+                                    <label for="license_number">License Number</label>
                                     <input type="number" class="form-control" id="license_number"
                                         name="license_number">
                                 </div>
                                 <div class="form-group">
-                                    <label for="division_id">division_id</label>
+                                    <label for="division_id">Division Id</label>
                                     <input type="text" class="form-control" id="division_id"
                                         name="division_id">
                                 </div>
                                 <div class="form-group">
-                                    <label for="bp_reading">district_id</label>
+                                    <label for="bp_reading">District Id</label>
                                     <input type="text" class="form-control" id="district_id" name="district_id">
                                         
                                 </div>
                                 <div class="form-group">
-                                    <label for="thana_id">thana_id</label>
+                                    <label for="thana_id">Thana Id</label>
                                     <input type="text" class="form-control" id="thana_id"
                                         name="thana_id">
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="source">address</label>
+                                    <label for="source">Address</label>
                                     <input type="text" class="form-control" id="address" name="address">
                                     
                                 </div>
                                 <div class="form-group">
-                                    <label for="follow_up">per_division_id</label>
+                                    <label for="follow_up">Per Division Id</label>
                                     <input type="text" class="form-control" id="per_division_id" name="per_division_id">
                                         
                                 </div>
                                 <div class="form-group">
-                                    <label for="per_district_id">per_district_id</label>
+                                    <label for="per_district_id">Per District Id</label>
                                     <input type="text" class="form-control" id="per_district_id" name="per_district_id">
                                        
                                 </div>
                                 <div class="form-group">
-                                    <label for="per_thana_id">per_thana_id</label>
+                                    <label for="per_thana_id">Per Thana Id</label>
                                     <input type="text" class="form-control" id="per_thana_id" name="per_thana_id">
                                        
                                 </div>
                                 <div class="form-group">
-                                    <label for="per_address">per_address</label>
+                                    <label for="per_address">Per Address</label>
                                     <input type="text" class="form-control" id="per_address" name="per_address">
                                        
                                 </div>
                                 <div class="form-group">
-                                    <label for="emergency_contact">emergency_contact</label>
+                                    <label for="emergency_contact">Emergency Contact</label>
                                     <input type="number" class="form-control" id="emergency_contact" name="emergency_contact">
                                        
                                 </div>
                                 <div class="form-group">
-                                    <label for="profile_image">profile_image</label>
+                                    <label for="profile_image">Profile Image</label>
                                     <input type="text" class="form-control" id="profile_image" name="profile_image">
                                        
                                 </div>
                                 <div class="form-group">
-                                    <label for="bank_name">bank_name</label>
+                                    <label for="bank_name">Bank Name</label>
                                     <input type="text" class="form-control" id="bank_name" name="bank_name">
                                        
                                 </div>
                                 <div class="form-group">
-                                    <label for="branch_name">branch_name</label>
+                                    <label for="branch_name">Branch Name</label>
                                     <input type="text" class="form-control" id="branch_name" name="branch_name">
                                        
                                 </div>
                                 <div class="form-group">
-                                    <label for="bank_account">bank_account</label>
+                                    <label for="bank_account">Bank Account</label>
                                     <input type="number" class="form-control" id="bank_account" name="bank_account">
                                        
                                 </div>
                                 <div class="form-group">
-                                    <label for="salary">salary</label>
+                                    <label for="salary">Salary</label>
                                     <input type="text" class="form-control" id="salary" name="salary">
                                        
                                 </div>
                                 <div class="form-group">
-                                    <label for="education">education</label>
+                                    <label for="education">Education</label>
                                     <input type="text" class="form-control" id="education" name="education">
                                        
                                 </div>
                                 <div class="form-group">
-                                    <label for="experience_years">experience_years</label>
+                                    <label for="experience_years">Experience Years</label>
                                     <input type="number" class="form-control" id="experience_years" name="experience_years">
                                        
                                 </div>

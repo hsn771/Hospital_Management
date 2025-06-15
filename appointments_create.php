@@ -39,26 +39,13 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="gender">Staff</label>
+                                    <label for="gender">Doctor</label>
                                     <select class="form-control" id="staff_id" name="staff_id">
                                         <?php
                                         $res = $mysqli->common_select('user');
                                         if (!$res['error']) {
                                             foreach ($res['data'] as $key => $value) {
                                                 echo '<option value="' . $value->id . '">' . $value->name . '</option>';
-                                                }
-                                            }
-                                        ?>
-                                    </select>
-                                </div>
-                                <div class="form-group">
-                                    <label for="date_of_birth">Room</label>
-                                    <select class="form-control" id="room_id" name="room_id">
-                                        <?php
-                                        $res = $mysqli->common_select('rooms');
-                                        if (!$res['error']) {
-                                            foreach ($res['data'] as $key => $value) {
-                                                echo '<option value="' . $value->id . '">' . $value->room_number . '</option>';
                                                 }
                                             }
                                         ?>

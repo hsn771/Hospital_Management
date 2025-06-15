@@ -31,13 +31,12 @@
                                             <tr>
                                                 <th scope="col">ID</th>
                                                 <th scope="col">patient_id</th>
-                                                <th scope="col">staff_id</th>
-                                                <th scope="col">room_id</th>
+                                                <th scope="col">Doctor</th>
                                                 <th scope="col">appointment_date</th>
                                                 <th scope="col">start_time</th>
                                                 <th scope="col">purpose</th>
                                                 <th scope="col">notes</th>
-                                                <th scope="col">appointment_type</th>
+                                                <th scope="col">Serial no</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
@@ -51,12 +50,11 @@
                                                         <td><?= ++$i ?></td>
                                                         <td><?= $d->patient_id ?></td>
                                                         <td><?= $d->staff_id ?></td>
-                                                        <td><?= $d->room_id ?></td>
                                                         <td><?= $d->appointment_date ?></td>
                                                         <td><?= $d->start_time ?></td>
                                                         <td><?= $d->purpose ?></td>
                                                         <td><?= $d->notes ?></td>
-                                                        <td><?= $d->appointment_type ?></td>
+                                                        <td><?= $d->serial_no ?></td>
                                                         <td>
                                                             <a href="<?= $baseurl ?>appointments_show.php?id=<?= $d->id ?>"
                                                                 class="btn btn-info btn-xs" title="Edit">

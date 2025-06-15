@@ -36,27 +36,23 @@
                                                 <th scope="col">Capacity</th>
                                                 <th scope="col">Floor</th>
                                                 <th scope="col">Has AC</th>
-                                                <th scope="col"> Has TV</th>
-                                                <th scope="col"> Has Internet</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $data = $mysqli->common_select('rooms');
+                                            $data = $mysqli->common_query('select rooms.*, rooms_type.type, departments.name from rooms JOIN rooms_type on rooms_type.id=rooms.room_type_id JOIN departments on departments.id=rooms.department_id where rooms.status=1');
                                             if (!$data['error']) {
                                                 foreach ($data['data'] as $i => $d) {
                                                     ?>
                                                     <tr>
                                                         <td><?= ++$i ?></td>
                                                         <td><?= $d->room_number ?></td>
-                                                        <td><?= $d->room_type_id ?></td>
-                                                        <td><?= $d->department_id ?></td>
+                                                        <td><?= $d->type ?></td>
+                                                        <td><?= $d->name ?></td>
                                                         <td><?= $d->capacity ?></td>
                                                         <td><?= $d->floor ?></td>
-                                                        <td><?= $d->has_ac ?></td>
-                                                        <td><?= $d->has_tv ?></td>
-                                                        <td><?= $d->has_internet ?></td>
+                                                        <td><?= $d->has_ac?"Yes":"No" ?></td>
                                                         <td>
                                                             <a href="<?= $baseurl ?>rooms_show.php?id=<?= $d->id ?>"
                                                                 class="btn btn-info btn-xs" title="Edit">

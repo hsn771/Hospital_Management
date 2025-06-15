@@ -98,7 +98,7 @@ $mysqli = new crud();
                         $_SESSION['role'] = $role['data'][0];
                         $_SESSION['user'] = $res['data'][0];
                         $_SESSION['log_user_status'] = true;
-                        echo "<script>location.href='dashboard.php'</script>";
+                        echo "<script>location.href='index.php'</script>";
                     }
                 } else {
                     echo "<script>alert('Login Failed')</script>";

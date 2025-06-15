@@ -22,7 +22,7 @@
             <?php
                   $where['id']=$_GET['id'];
                   
-                  $data=$mysqli->common_select('patients','*',$where);
+                  $data=$mysqli->common_select('appointments','*',$where);
                   if(!$data['error']){
                     $data=$data['data'][0];
                   }
@@ -35,18 +35,31 @@
                             <form method="post" enctype="multipart/form-data" action="">
                                 <div class="form-group">
                                     <label for="patient_id">Patient Id</label>
-                                    <input type="number" class="form-control" id="patient_id" value="<?= $data->patient_id ?>" name="patient_id"
-                                        aria-describedby="emailHelp" placeholder="">
+                                    <select class="form-control" id="patient_id" name="patient_id">
+                                        <?php
+                                        $res = $mysqli->common_select('patients');
+                                        if (!$res['error']) {
+                                            foreach ($res['data'] as $key => $value) {
+                                        ?>
+                                        <option value="<?= $value->id ?>" <?= $data->patient_id==$value->id?"selected":"" ?>><?= $value->full_name ?></option>
+                                        <?php        }
+                                            }
+                                        ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="gender">Staff Id</label>
-                                     <input type="number" class="form-control" id="staff_id" value="<?= $data->staff_id ?>" name="staff_id"
-                                        aria-describedby="emailHelp">
-                                </div>
-                                <div class="form-group">
-                                    <label for="date_of_birth">Room Id</label>
-                                    <input type="number" class="form-control" id="room_id" value="<?= $data->room_id ?>" name="room_id"
-                                        aria-describedby="emailHelp">
+                                    <label for="gender">Doctor</label>
+                                    <select class="form-control" id="staff_id" name="staff_id">
+                                        <?php
+                                        $res = $mysqli->common_select('user');
+                                        if (!$res['error']) {
+                                            foreach ($res['data'] as $key => $value) {
+                                        ?>
+                                                <option value="<?= $value->id ?>" <?= $data->staff_id==$value->id?"selected":"" ?>><?= $value->name ?></option>
+                                         <?php       }
+                                            }
+                                        ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">appointment_date</label>

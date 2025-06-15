@@ -21,7 +21,7 @@
             </div>
             <?php
             $where['id'] = $_GET['id'];
-            $data = $mysqli->common_select('rooms', '*', $where);
+            $data = $mysqli->common_query("select rooms.*, rooms_type.type, departments.name from rooms JOIN rooms_type on rooms_type.id=rooms.room_type_id JOIN departments on departments.id=rooms.department_id where rooms.id='".$_GET['id']."'");
             if (!$data['error']) {
                 $rooms = $data['data'][0];
             }
@@ -46,11 +46,11 @@
                                             </tr>
                                             <tr>
                                                 <th scope="col">Room Type Id</th>
-                                                <td><?= $rooms->room_type_id ?></td>
+                                                <td><?= $rooms->type ?></td>
                                             </tr>
                                             <tr>
                                                 <th scope="col">Department Id</th>
-                                                <td><?= $rooms->department_id ?></td>
+                                                <td><?= $rooms->name ?></td>
                                             </tr>
                                             <tr>
                                                 <th scope="col">Capacity</th>
@@ -62,15 +62,15 @@
                                             </tr>
                                             <tr>
                                                 <th scope="col">Has AC</th>
-                                                <td><?= $rooms->has_ac ?></td>
+                                                <td><?= $rooms->has_ac?"Yes":"No" ?></td>
                                             </tr>
                                             <tr>
                                                 <th scope="col">Has TV</th>
-                                                <td><?= $rooms->has_tv ?></td>
+                                                <td><?= $rooms->has_tv?"Yes":"No" ?></td>
                                             </tr>
                                             <tr>
                                                 <th scope="col">Has Internet</th>
-                                                <td><?= $rooms->has_internet ?></td>
+                                                <td><?= $rooms->has_internet?"Yes":"No" ?></td>
                                             </tr>
                                             <tr>
                                                 <th scope="col">Price Per Day</th>
@@ -84,29 +84,20 @@
                                                 <th scope="col">Cleaning Status</th>
                                                 <td><?= $rooms->cleaning_status ?></td>
                                             </tr>
-                                            <tr>
-                                                <th scope="col">Nurse Station Id<</th>
-                                                <td><?= $rooms->nurse_station_id ?></td>
-                                            </tr>
+                                           
                                             <tr>
                                                 <th scope="col">Oxygen Support</th>
-                                                <td><?= $rooms->oxygen_support ?></td>
+                                                <td><?= $rooms->oxygen_support?"Yes":"No" ?></td>
                                             </tr>
-                                            <tr>
-                                                <th scope="col">Ventilator Available</th>
-                                                <td><?= $paroomstient->ventilator_available ?></td>
-                                            </tr>
+                                          
                                             <tr>
                                                 <th scope="col">Window View</th>
-                                                <td><?= $patient->window_view ?></td>
+                                                <td><?= $rooms->window_view?"Yes":"No" ?></td>
                                             </tr>
-                                            <tr>
-                                                <th scope="col">Room Sizen</th>
-                                                <td><?= $patient->room_size ?></td>
-                                            </tr>
+                                            
                                             <tr>
                                                 <th scope="col">Special Features</th>
-                                                <td><?= $patient->special_features ?></td>
+                                                <td><?= $rooms->special_features ?></td>
                                             </tr>
                                             
                                             

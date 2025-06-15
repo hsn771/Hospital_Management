@@ -45,10 +45,6 @@
                                                 <td><?= $appointments->staff_id ?></td>
                                             </tr>
                                             <tr>
-                                                <th scope="col">Room Id</th>
-                                                <td><?= $appointments->room_id ?></td>
-                                            </tr>
-                                            <tr>
                                                 <th scope="col">Appointment Date</th>
                                                 <td><?= $appointments->appointment_date ?></td>
                                             </tr>

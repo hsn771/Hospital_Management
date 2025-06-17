@@ -23,18 +23,24 @@
                 <div class="col-12 mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">Department</h4>
+                            <h4 class="header-title">Test</h4>
                             <form method="post" enctype="multipart/form-data" action="">
                                 <div class="form-group">
-                                    <label for="name">Name</label>
-                                     <input type="text" class="form-control" id="name" name="name"
-                                        placeholder="Name">
+                                    <label for=""> Id</label>
+                                    <input type="number" class="form-control" id="patient_id" name="patient_id"
+                                        aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
-                                    <label for="status">Status</label>
-                                    <input type="text" class="form-control" id="status" name="status"
-                                        placeholder="status">
+                                    <label for="gender">Name</label>
+                                     <input type="number" class="form-control" id="name" name="name"
+                                        aria-describedby="emailHelp">
                                 </div>
+                                <div class="form-group">
+                                    <label for="date_of_birth">Amount</label>
+                                    <input type="number" class="form-control" id="amount" name="amount"
+                                        aria-describedby="emailHelp">
+                                </div>
+                                
                                 <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
                             </form>
                                 
@@ -44,9 +50,9 @@
                                 $_POST['created_at'] = date('Y-m-d H:i:s');
                                 $_POST['created_by'] = $_SESSION['user']->id;
                                 $_POST['status'] = 1;
-                                $res = $mysqli->common_insert('departments', $_POST);
+                                $res = $mysqli->common_insert('addmissions', $_POST);
                                 if (!$res['error']) {
-                                    echo "<script>location.href='" . $baseurl . "departments.php'</script>";
+                                    echo "<script>location.href='" . $baseurl . "addmissions.php'</script>";
                                 } else {
                                     echo $res['error_msg'];
                                 }

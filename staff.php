@@ -43,19 +43,21 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $data = $mysqli->common_select('staff');
+                                            $data = $mysqli->common_query('SELECT staff.*,departments.name,shift.name FROM `staff` 
+                                                                           JOIN departments on departments.id=staff.department_id 
+                                                                           JOIN shift on shift.id=staff.shift_id WHERE staff.status=1');
                                             if (!$data['error']) {
                                                 foreach ($data['data'] as $i => $d) {
                                                     ?>
                                                     <tr>
                                                         <td><?= ++$i ?></td>
                                                         <td><?= $d->full_name ?></td>
-                                                        <td><?= $d->department_id ?></td>
+                                                        <td><?= $d->name ?></td>
                                                         <td><?= $d->specialization ?></td>
                                                         <td><?= $d->phone ?></td>
                                                         <td><?= $d->email ?></td>
                                                         <td><?= $d->join_date ?></td>
-                                                        <td><?= $d->shift_id ?></td>
+                                                        <td><?= $d->name ?></td>
                                                         <td><?= $d->license_number ?></td>
                                                         <td>
                                                             <a href="<?= $baseurl ?>staff_show.php?id=<?= $d->id ?>"

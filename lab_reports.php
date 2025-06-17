@@ -12,7 +12,7 @@
         <div class="row align-items-center">
             <div class="col-sm-6">
                 <div class="breadcrumbs-area clearfix">
-                    <h4 class="page-title pull-left">Addmission</h4>
+                    <h4 class="page-title pull-left">Lab Reports</h4>
                     <ul class="breadcrumbs pull-left">
                         <li><a href="index.html">Home</a></li>
         
@@ -30,47 +30,43 @@
                                         <thead class="text-uppercase">
                                             <tr>
                                                 <th scope="col">ID</th>
-                                                <th scope="col">Patient Name</th>
-                                                <th scope="col">Doctor's Name</th>
-                                                <th scope="col">Room Number</th>
-                                                <th scope="col">Admission Date</th>
-                                                <th scope="col">Discharge Date</th>
-                                                <th scope="col">Reason</th>
-                                                <th scope="col">Initial Diagnosis</th>
-                                                <th scope="col">Treatment Plan</th>
-                                                <th scope="col">Action</th>
+                                                <th scope="col">Patient Id</th>
+                                                <th scope="col">Staff Id</th>
+                                                <th scope="col">test Type</th>
+                                                <th scope="col">Sample Collected Date</th>
+                                                <th scope="col">Test Date</th>
+                                                <th scope="col">Report Date</th>
+                                                <th scope="col">Result Summary</th>
+                                                <th scope="col">Document link</th>
+                                               
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $data = $mysqli->common_query('SELECT addmissions.*,patients.full_name,patients.phone,user.name,user.contact_no,rooms.room_number FROM `addmissions`
-                                                                           JOIN patients on patients.id=addmissions.patient_id 
-                                                                           JOIN user on user.id=addmissions.staff_id 
-                                                                           JOIN rooms on rooms.id=addmissions.room_id 
-                                                                           WHERE addmissions.status=1');
+                                            $data = $mysqli->common_select('lab_reports');
                                             if (!$data['error']) {
                                                 foreach ($data['data'] as $i => $d) {
                                                     ?>
                                                     <tr>
                                                         <td><?= ++$i ?></td>
-                                                        <td><?= $d->full_name ?> (<?= $d->phone ?>)</td>
-                                                        <td><?= $d->name ?> (<?= $d->contact_no ?>)</td>
-                                                        <td><?= $d->room_number ?></td>
-                                                        <td><?= $d->admission_date ?></td>
-                                                        <td><?= $d->discharge_date ?></td>
-                                                        <td><?= $d->reason ?></td>
-                                                        <td><?= $d->initial_diagnosis ?></td>
-                                                        <td><?= $d->treatment_plan ?></td>
+                                                        <td><?= $d->patient_id ?></td>
+                                                        <td><?= $d->staff_id ?></td>
+                                                        <td><?= $d->test_type ?></td>
+                                                        <td><?= $d->sample_collected_date ?></td>
+                                                        <td><?= $d->test_date ?></td>
+                                                        <td><?= $d->report_date ?></td>
+                                                        <td><?= $d->result_summary ?></td>
+                                                        <td><?= $d->document_link ?></td>
                                                         <td>
-                                                            <a href="<?= $baseurl ?>addmissions_show.php?id=<?= $d->id ?>"
+                                                            <a href="<?= $baseurl ?>lab_reports_show.php?id=<?= $d->id ?>"
                                                                 class="btn btn-info btn-xs" title="Edit">
                                                                 <i class="fa fa-eye"></i>
                                                             </a>
-                                                            <a href="<?= $baseurl ?>addmissions_edit.php?id=<?= $d->id ?>"
+                                                            <a href="<?= $baseurl ?>lab_reports_edit.php?id=<?= $d->id ?>"
                                                                 class="btn btn-info btn-xs" title="Edit">
                                                                 <i class="fa fa-edit"></i>
                                                             </a>
-                                                            <a href="<?= $baseurl ?>addmissions_delete.php?id=<?= $d->id ?>"
+                                                            <a href="<?= $baseurl ?>lab_reports_delete.php?id=<?= $d->id ?>"
                                                                 class="btn btn-danger btn-xs" title="Delete">
                                                                 <i class="fa fa-trash"></i>
                                                             </a>

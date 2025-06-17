@@ -81,6 +81,20 @@
                                 </ul>
                             </li>
                             <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Lab Report</span></a>
+                                <ul class="collapse">
+                                    <li><a href="lab_reports.php">List</a></li>
+                                    <li><a href="lab_reports_create.php">Add New</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Test</span></a>
+                                <ul class="collapse">
+                                    <li><a href="test.php">List</a></li>
+                                    <li><a href="test_create.php">Add New</a></li>
+                                </ul>
+                            </li>
+                            <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Staff</span></a>
                                 <ul class="collapse">
                                     <li><a href="staff.php">List</a></li>

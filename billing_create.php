@@ -32,16 +32,18 @@ include_once 'Include/header.php';
                                 <div class="form-group">
                                     <label for="patient_id">Patient Name</label>
                                     <select class="form-control" id="patient_id" name="patient_id">
+                                        <option value="">Select Patient</option>
                                         <?php
                                         $res = $mysqli->common_select('patients');
                                         if (!$res['error']) {
                                             foreach ($res['data'] as $key => $value) {
-                                                echo '<option value="' . $value->id . '">' . $value->full_name . '</option>';
+                                                echo '<option value="' . $value->id . '">' . $value->full_name .'('.$value->phone.')' . '</option>';
                                                 }
                                             }
                                         ?>
                                     </select>
                                 </div>
+
                                 <div class="form-group">
                                     <label for="total_amount">Total Amount</label>
                                     <input type="number" step="0.01" class="form-control" id="total_amount" name="total_amount" required>

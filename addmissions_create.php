@@ -93,19 +93,7 @@
                                     <input type="text" class="form-control" id="treatment_plan"
                                         name="treatment_plan" placeholder="treatment_plan">
                                 </div>
-                                <div class="form-group">
-                                    <label for="Nurse Id">Nurse Id</label>
-                                    <select class="form-control" id="nurse_id" name="nurse_id">
-                                        <?php
-                                        $res = $mysqli->common_select('nurse');
-                                        if (!$res['error']) {
-                                            foreach ($res['data'] as $key => $value) {
-                                                echo '<option value="' . $value->id . '">' . $value->room_number . '</option>';
-                                                }
-                                            }
-                                        ?>
-                                    </select>
-                                </div>
+                                
                                 <div class="form-group">
                                     <label for="Notes">Notes</label>
                                     <input type="text" class="form-control" id="notes"

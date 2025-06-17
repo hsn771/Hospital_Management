@@ -42,14 +42,17 @@
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $data = $mysqli->common_select('appointments');
+                                            $data = $mysqli->common_query('SELECT appointments.*, patients.full_name,patients.phone,user.name, user.contact_no FROM `appointments` 
+                                                                            JOIN patients on patients.id=appointments.patient_id
+                                                                            JOIN user on user.id=appointments.staff_id
+                                                                            WHERE appointments.status=1');
                                             if (!$data['error']) {
                                                 foreach ($data['data'] as $i => $d) {
                                                     ?>
                                                     <tr>
                                                         <td><?= ++$i ?></td>
-                                                        <td><?= $d->patient_id ?></td>
-                                                        <td><?= $d->staff_id ?></td>
+                                                        <td><?= $d->full_name ?> (<?= $d->phone ?>)</td>
+                                                        <td><?= $d->name ?> (<?= $d->contact_no ?>)</td>
                                                         <td><?= $d->appointment_date ?></td>
                                                         <td><?= $d->start_time ?></td>
                                                         <td><?= $d->purpose ?></td>

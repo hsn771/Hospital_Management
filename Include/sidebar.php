@@ -38,11 +38,32 @@
                                     <li><a href="addmissions_create.php">Add New</a></li>
                                 </ul>
                             </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Bills & Payments</span></a>
+                                <ul class="collapse">
+                                    <li><a href="billing.php">List</a></li>
+                                    <li><a href="billing_create.php">Add New</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Department</span></a>
+                                <ul class="collapse">
+                                    <li><a href="departments.php">List</a></li>
+                                    <li><a href="departments_create.php">Add New</a></li>
+                                </ul>
+                            </li>
                              <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Rooms</span></a>
                                 <ul class="collapse">
                                     <li><a href="rooms.php">List</a></li>
                                     <li><a href="rooms_create.php">Add New</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Room Type</span></a>
+                                <ul class="collapse">
+                                    <li><a href="room_type.php">List</a></li>
+                                    <li><a href="room_type_create.php">Add New</a></li>
                                 </ul>
                             </li>
                             <li>

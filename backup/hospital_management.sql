@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 04, 2025 at 07:11 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Jun 15, 2025 at 08:59 AM
+-- Server version: 10.4.27-MariaDB
+-- PHP Version: 8.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -73,7 +73,6 @@ CREATE TABLE `appointments` (
   `id` int(11) NOT NULL,
   `patient_id` int(11) DEFAULT NULL,
   `staff_id` int(11) DEFAULT NULL,
-  `room_id` int(11) DEFAULT NULL,
   `appointment_date` date DEFAULT NULL,
   `start_time` time DEFAULT NULL,
   `purpose` varchar(100) DEFAULT NULL,
@@ -98,9 +97,9 @@ CREATE TABLE `appointments` (
 -- Dumping data for table `appointments`
 --
 
-INSERT INTO `appointments` (`id`, `patient_id`, `staff_id`, `room_id`, `appointment_date`, `start_time`, `purpose`, `notes`, `appointment_type`, `confirmation_code`, `is_emergency`, `patient_temperature`, `bp_reading`, `heart_rate`, `source`, `follow_up_required`, `serial_no`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(1, 1, 0, 0, '2025-05-15', '21:32:00', 'fev', 'dfv', 'Routine/Check-up', NULL, NULL, 45.0, '45', 34, 'dfvdf', 0, 0, 0, '2025-05-31 17:32:32', '2025-05-31 17:33:43', 1, 1),
-(2, 1, 0, 0, '2025-06-16', '09:39:00', 'fb', 'fb', 'Routine/Check-up', NULL, NULL, 45.0, '45', 45, 'fdb', 0, 5, 1, '2025-06-01 05:40:16', NULL, 1, NULL);
+INSERT INTO `appointments` (`id`, `patient_id`, `staff_id`, `appointment_date`, `start_time`, `purpose`, `notes`, `appointment_type`, `confirmation_code`, `is_emergency`, `patient_temperature`, `bp_reading`, `heart_rate`, `source`, `follow_up_required`, `serial_no`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(1, 1, 0, '2025-05-15', '21:32:00', 'fev', 'dfv', 'Routine/Check-up', NULL, NULL, '45.0', '45', 34, 'dfvdf', 0, 0, 0, '2025-05-31 17:32:32', '2025-05-31 17:33:43', 1, 1),
+(2, 1, 1, '2025-06-16', '09:39:00', 'fb', 'fb', 'New Patient', NULL, NULL, '45.0', '45', 45, 'fdb', 0, 5, 1, '2025-06-01 05:40:16', '2025-06-15 08:57:49', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -162,30 +161,19 @@ CREATE TABLE `billing_details` (
 CREATE TABLE `departments` (
   `id` int(11) NOT NULL,
   `name` varchar(100) DEFAULT NULL,
-  `description` text DEFAULT NULL,
-  `head_id` int(11) DEFAULT NULL,
-  `floor` varchar(10) DEFAULT NULL,
-  `contact_number` varchar(15) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `working_hours` varchar(50) DEFAULT NULL,
-  `services_offered` text DEFAULT NULL,
-  `equipment_list` text DEFAULT NULL,
-  `website_url` varchar(255) DEFAULT NULL,
-  `logo_url` varchar(255) DEFAULT NULL,
-  `operating_days` varchar(50) DEFAULT NULL,
-  `emergency_contact` varchar(15) DEFAULT NULL,
-  `founded_date` date DEFAULT NULL,
-  `special_notes` text DEFAULT NULL,
-  `service_rating` decimal(3,2) DEFAULT NULL,
-  `location_notes` text DEFAULT NULL,
-  `budget_allocation` decimal(12,2) DEFAULT NULL,
-  `remarks` text DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `departments`
+--
+
+INSERT INTO `departments` (`id`, `name`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(1, 'Cardiology', 1, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -376,10 +364,9 @@ CREATE TABLE `patients` (
 --
 
 INSERT INTO `patients` (`id`, `full_name`, `gender`, `date_of_birth`, `phone`, `email`, `division_id`, `district_id`, `upazila_id`, `address`, `blood_id`, `emergency_contact`, `nid_passport`, `insurance_id`, `allergies`, `registration_date`, `profile_image`, `marital_status`, `occupation`, `nationality`, `guardian_name`, `guardian_relation`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(1, 'Ibrahim khalil', 'Male', '2025-05-31', '0156669998', 'kamal@yahoo.com', 1, 8, 78, '2no Gate', NULL, '111111111111111', '111111111111111111111111', 'asdf', 'asdf', '2025-05-31', NULL, 'Married', 'asdf', 'asdf', 'asdf', 'asdf', 0, '2025-05-31 06:16:27', '2025-05-31 06:33:49', 1, 0),
-(2, 'Hasan', 'Male', '1996-07-09', '01625142403', 'hasan@gmail.com', 1, 8, 72, 'Halishahar', NULL, '015', '1123', '112', 'Fever', '2025-03-20', 'uploads/patient/1748695845155517485263917442ME.jpg', 'Married', 'Student', 'Bangladesh', 'Harun Rashid', 'Father', 0, '2025-05-31 14:50:45', '2025-05-31 15:04:11', 1, 1),
-(3, 'Rakib', 'Male', '2025-05-06', '013', 'jesan@gmail.com', 1, 10, 94, 'Halishahar', NULL, '016', '1234', '12345', 'Fever', '2025-05-02', 'uploads/patient/1748696617138317486630588904man.jpg', 'Married', 'Student', 'Bangladesh', 'Jesan', 'Father', 1, '2025-05-31 15:03:37', NULL, 1, NULL),
-(4, 'Naeem', 'Male', '0000-00-00', '', '', 0, 0, 0, '', NULL, '', '', '', '', '0000-00-00', 'uploads/patient/17490123107621pexels-photo-757889.jpeg', 'Married', '', '', '', '', 0, '2025-06-04 06:37:32', '2025-06-04 06:45:52', 1, 1);
+(1, 'Ibrahim khalil', 'Male', '2025-05-31', '0156669998', 'kamal@yahoo.com', 1, 8, 78, '2no Gate', NULL, '111111111111111', '111111111111111111111111', 'asdf', 'asdf', '2025-05-31', NULL, 'Married', 'asdf', 'asdf', 'asdf', 'asdf', 1, '2025-05-31 06:16:27', '2025-05-31 06:33:49', 1, 0),
+(2, 'Hasan', 'Male', '1996-07-09', '01625142403', 'hasan@gmail.com', 1, 8, 72, 'Halishahar', NULL, '015', '1123', '112', 'Fever', '2025-03-20', 'uploads/patient/1748695845155517485263917442ME.jpg', 'Married', 'Student', 'Bangladesh', 'Harun Rashid', 'Father', 1, '2025-05-31 14:50:45', '2025-05-31 15:04:11', 1, 1),
+(3, 'Rakib', 'Male', '2025-05-06', '013', 'jesan@gmail.com', 1, 10, 94, 'Halishahar', NULL, '016', '1234', '12345', 'Fever', '2025-05-02', 'uploads/patient/1748696617138317486630588904man.jpg', 'Married', 'Student', 'Bangladesh', 'Jesan', 'Father', 1, '2025-05-31 15:03:37', NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -478,11 +465,9 @@ CREATE TABLE `rooms` (
   `price_per_day` decimal(10,2) DEFAULT NULL,
   `last_cleaned` date DEFAULT NULL,
   `cleaning_status` varchar(20) DEFAULT NULL,
-  `nurse_station_id` int(11) DEFAULT NULL,
   `oxygen_support` tinyint(1) DEFAULT NULL,
   `ventilator_available` tinyint(1) DEFAULT NULL,
   `window_view` tinyint(1) DEFAULT NULL,
-  `room_size` varchar(50) DEFAULT NULL,
   `special_features` text DEFAULT NULL,
   `status` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
@@ -490,6 +475,13 @@ CREATE TABLE `rooms` (
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rooms`
+--
+
+INSERT INTO `rooms` (`id`, `room_number`, `room_type_id`, `department_id`, `capacity`, `floor`, `has_ac`, `has_tv`, `has_internet`, `price_per_day`, `last_cleaned`, `cleaning_status`, `oxygen_support`, `ventilator_available`, `window_view`, `special_features`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(1, '10011', 1, 1, 1, '1', 1, 1, 1, '5000.00', '2025-06-06', '1', 1, NULL, 1, 'fdg', 1, '2025-06-15 08:39:01', NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -506,6 +498,13 @@ CREATE TABLE `rooms_type` (
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `rooms_type`
+--
+
+INSERT INTO `rooms_type` (`id`, `type`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(1, 'AC', 1, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1209,8 +1208,7 @@ ALTER TABLE `addmissions`
 ALTER TABLE `appointments`
   ADD PRIMARY KEY (`id`),
   ADD KEY `patient_id` (`patient_id`),
-  ADD KEY `staff_id` (`staff_id`),
-  ADD KEY `room_id` (`room_id`);
+  ADD KEY `staff_id` (`staff_id`);
 
 --
 -- Indexes for table `billing`
@@ -1234,8 +1232,7 @@ ALTER TABLE `billing_details`
 -- Indexes for table `departments`
 --
 ALTER TABLE `departments`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `head_id` (`head_id`);
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `district`
@@ -1396,7 +1393,7 @@ ALTER TABLE `billing_details`
 -- AUTO_INCREMENT for table `departments`
 --
 ALTER TABLE `departments`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `lab_reports`
@@ -1408,7 +1405,7 @@ ALTER TABLE `lab_reports`
 -- AUTO_INCREMENT for table `patients`
 --
 ALTER TABLE `patients`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `prescriptions`
@@ -1438,13 +1435,13 @@ ALTER TABLE `role_access`
 -- AUTO_INCREMENT for table `rooms`
 --
 ALTER TABLE `rooms`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `rooms_type`
 --
 ALTER TABLE `rooms_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `schedules`

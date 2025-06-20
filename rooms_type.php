@@ -43,7 +43,7 @@
                                                     ?>
                                                     <tr>
                                                         <td><?= ++$i ?></td>
-                                                        <td><?= $d->name ?></td>
+                                                        <td><?= $d->type ?></td>
                                                         <td><?= $d->status ?></td>
                                                         <td>
                                                             <a href="<?= $baseurl ?>rooms_type_edit.php?id=<?= $d->id ?>"

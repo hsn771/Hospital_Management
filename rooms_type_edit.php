@@ -34,8 +34,8 @@
                             <h4 class="header-title">Update Room Type Form</h4>
                             <form method="post" enctype="multipart/form-data" action="">
                                 <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" name="name" value="<?= $data->name ?>">
+                                    <label for="id">ID</label>
+                                    <input type="text" class="form-control" id="id" name="id" value="<?= $data->id ?>">
                                 </div>
                                 <div class="form-group">
                                     <label for="type">Type</label>

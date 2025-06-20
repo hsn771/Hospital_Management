@@ -26,13 +26,13 @@
                             <h4 class="header-title">Room Type</h4>
                             <form method="post" enctype="multipart/form-data" action="">
                                 <div class="form-group">
-                                    <label for="name">Name</label>
-                                    <select class="form-control" id="name" name="name">
+                                    <label for="id">Patient's Name</label>
+                                    <select class="form-control" id="id" name="id">
                                         <?php
-                                        $res = $mysqli->common_select('patients');
+                                        $res = $mysqli->common_select('rooms');
                                         if (!$res['error']) {
                                             foreach ($res['data'] as $key => $value) {
-                                                echo '<option value="' . $value->id . '">' . $value->full_name . '</option>';
+                                                echo '<option value="' . $value->id . '">' . $value->room_number . '</option>';
                                                 }
                                             }
                                         ?>

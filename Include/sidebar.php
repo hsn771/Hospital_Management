@@ -9,7 +9,7 @@
                     <nav>
                         <ul class="metismenu" id="menu">
                             <li class="active">
-                                <a href="javascript:void(0)" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
+                                <a href="index.php" aria-expanded="true"><i class="ti-dashboard"></i><span>dashboard</span></a>
                                 <!-- <ul class="collapse">
                                     <li><a href="index.html">SEO dashboard</a></li>
                                     <li><a href="#">Ecommerce dashboard</a></li>
@@ -62,8 +62,8 @@
                             <li>
                                 <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Room Type</span></a>
                                 <ul class="collapse">
-                                    <li><a href="room_type.php">List</a></li>
-                                    <li><a href="room_type_create.php">Add New</a></li>
+                                    <li><a href="rooms_type.php">List</a></li>
+                                    <li><a href="rooms_type_create.php">Add New</a></li>
                                 </ul>
                             </li>
                             <li>

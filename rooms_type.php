@@ -29,22 +29,20 @@
                                     <table class="table table-bordered text-center">
                                         <thead class="text-uppercase">
                                             <tr>
-                                                <th scope="col">ID</th>
+                                                <th scope="col">#SL</th>
                                                 <th scope="col">type</th>
-                                                <th scope="col">Status</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $data = $mysqli->common_select('rooms_type');
-                                            if (!$data['error']) {
-                                                foreach ($data['data'] as $i => $d) {
-                                                    ?>
+                                                $data = $mysqli->common_select('rooms_type');
+                                                if (!$data['error']) {
+                                                    foreach ($data['data'] as $i => $d) {
+                                            ?>
                                                     <tr>
                                                         <td><?= ++$i ?></td>
                                                         <td><?= $d->type ?></td>
-                                                        <td><?= $d->status ?></td>
                                                         <td>
                                                             <a href="<?= $baseurl ?>rooms_type_edit.php?id=<?= $d->id ?>"
                                                                 class="btn btn-info btn-xs" title="Edit">
@@ -56,9 +54,7 @@
                                                             </a>
                                                         </td>
                                                     </tr>
-                                                <?php }
-                                            }
-                                            ?>
+                                            <?php } } ?>
                                         </tbody>
                                     </table>
                                 </div>

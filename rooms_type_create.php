@@ -25,29 +25,13 @@
                         <div class="card-body">
                             <h4 class="header-title">Room Type</h4>
                             <form method="post" enctype="multipart/form-data" action="">
-                                <div class="form-group">
-                                    <label for="id">Patient's Name</label>
-                                    <select class="form-control" id="id" name="id">
-                                        <?php
-                                        $res = $mysqli->common_select('rooms');
-                                        if (!$res['error']) {
-                                            foreach ($res['data'] as $key => $value) {
-                                                echo '<option value="' . $value->id . '">' . $value->room_number . '</option>';
-                                                }
-                                            }
-                                        ?>
-                                    </select>
-                                </div>
+                                
                                 <div class="form-group">
                                     <label for="type">Type</label>
                                     <input type="text" class="form-control" id="type" name="type"
                                         placeholder="Type">
                                 </div>
-                                <div class="form-group">
-                                    <label for="status">Status</label>
-                                    <input type="text" class="form-control" id="status" name="status"
-                                        placeholder="Status">
-                                </div>
+                                
                                 <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
                             </form>
                                 

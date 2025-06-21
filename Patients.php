@@ -58,6 +58,13 @@
                                                         <td><?= $d->emergency_contact ?></td>
                                                         <td><img src="<?= $d->profile_image ?>" width="100px"></td>
                                                         <td>
+                                                            <a href="<?= $baseurl ?>Patients_bill.php?id=<?= $d->id ?>"
+                                                                class="btn btn-info btn-xs" title="Bill">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cash" viewBox="0 0 16 16">
+                                                                    <path d="M8 10a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/>
+                                                                    <path d="M0 4a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V6a2 2 0 0 1-2-2z"/>
+                                                                </svg>
+                                                            </a>
                                                             <a href="<?= $baseurl ?>Patients_show.php?id=<?= $d->id ?>"
                                                                 class="btn btn-info btn-xs" title="Edit">
                                                                 <i class="fa fa-eye"></i>
@@ -70,6 +77,7 @@
                                                                 class="btn btn-danger btn-xs" title="Delete">
                                                                 <i class="fa fa-trash"></i>
                                                             </a>
+                                                            
                                                         </td>
                                                     </tr>
                                                 <?php }

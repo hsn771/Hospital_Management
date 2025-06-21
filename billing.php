@@ -27,27 +27,29 @@ include_once 'Include/header.php';
                 <div class="col-lg-12 mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">Billing Details</h4>
+                            <h4 class="header-title">Billing</h4>
                             <div class="single-table">
                                 <div class="table-responsive">
                                     <table class="table table-bordered text-center">
                                         <thead class="text-uppercase">
                                            <tr>
                                               <th>SL</th>
-                                              <th>Bill ID</th>
                                               <th>Patient Name</th>
+                                              <th>Doctor</th>
+                                              <th>Sub Total Amount</th>
+                                              <th>Discount</th>
                                               <th>Total Amount</th>
-                                              
                                               <th>Due Amount</th>
-                                              <th>Status</th>
+                                              <th>Payment Status</th>
                                               <th>Action</th>
                                            </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $patient_id = $_GET['patient_id'] ?? 0;
-                                            $where = ['patient_id' => $patient_id];
-                                            $result = $mysqli->common_select('billing', '*', $where);
+                                            $result = $mysqli->common_query('SELECT billing.*, patients.full_name,patients.phone,user.name,user.contact_no FROM `billing`
+                                                                            JOIN patients on patients.id=billing.patient_id
+                                                                            JOIN user on user.id=billing.staff_id
+                                                                            where billing.status=1');
                                             
                                             if (!$result['error']) {
                                                 foreach ($result['data'] as $i => $d) {
@@ -55,11 +57,13 @@ include_once 'Include/header.php';
                                                     ?>
                                                     <tr>
                                                         <td><?= ++$i ?></td>
-                                                        <td><?= $d->bill_id ?></td>
-                                                        <td>Patient #<?= $d->patient_id ?></td> <!-- Replace with patient name if available -->
+                                                        <td><?= $d->full_name ?> (<?= $d->phone ?>)</td>
+                                                        <td><?= $d->name ?> (<?= $d->contact_no ?>)</td>
                                                         <td>$<?= number_format($d->total_amount, 2) ?></td>
+                                                        <td>$<?= number_format($d->discount, 2) ?></td>
+                                                        <td>$<?= number_format($d->final_amount, 2) ?></td>
                                                         <td>$<?= number_format($d->due_amount, 2) ?></td>
-                                                        <td><span class="badge badge-<?= $status_class ?>"><?= $d->status ?></span></td>
+                                                        <td><span class="badge badge-<?= $status_class ?>"><?= $d->payment_status ?></span></td>
                                                         <td>
                                                             <a href="<?= $baseurl ?>billing_edit.php?id=<?= $d->bill_id ?>"
                                                                 class="btn btn-info btn-xs" title="Edit">

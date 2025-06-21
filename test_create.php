@@ -25,14 +25,10 @@
                         <div class="card-body">
                             <h4 class="header-title">Test</h4>
                             <form method="post" enctype="multipart/form-data" action="">
-                                <div class="form-group">
-                                    <label for=""> Id</label>
-                                    <input type="number" class="form-control" id="patient_id" name="patient_id"
-                                        aria-describedby="emailHelp">
-                                </div>
+                               
                                 <div class="form-group">
                                     <label for="gender">Name</label>
-                                     <input type="number" class="form-control" id="name" name="name"
+                                     <input type="text" class="form-control" id="name" name="name"
                                         aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
@@ -50,9 +46,9 @@
                                 $_POST['created_at'] = date('Y-m-d H:i:s');
                                 $_POST['created_by'] = $_SESSION['user']->id;
                                 $_POST['status'] = 1;
-                                $res = $mysqli->common_insert('addmissions', $_POST);
+                                $res = $mysqli->common_insert('test', $_POST);
                                 if (!$res['error']) {
-                                    echo "<script>location.href='" . $baseurl . "addmissions.php'</script>";
+                                    echo "<script>location.href='" . $baseurl . "test.php'</script>";
                                 } else {
                                     echo $res['error_msg'];
                                 }

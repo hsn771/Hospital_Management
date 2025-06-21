@@ -34,16 +34,8 @@
                             <h4 class="header-title">Update Room Type Form</h4>
                             <form method="post" enctype="multipart/form-data" action="">
                                 <div class="form-group">
-                                    <label for="id">ID</label>
-                                    <input type="text" class="form-control" id="id" name="id" value="<?= $data->id ?>">
-                                </div>
-                                <div class="form-group">
                                     <label for="type">Type</label>
                                     <input type="text" class="form-control" id="type" name="type" value="<?= $data->type ?>">
-                                </div>
-                                <div class="form-group"></div>
-                                    <label for="status">Status</label>
-                                    <input type="text" class="form-control" id="status" name="status" value="<?= $data->status ?>">
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Update</button>
                             </form>

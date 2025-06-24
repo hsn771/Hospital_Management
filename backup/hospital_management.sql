@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 15, 2025 at 08:59 AM
+-- Generation Time: Jun 21, 2025 at 09:43 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -32,13 +32,12 @@ CREATE TABLE `addmissions` (
   `patient_id` int(11) DEFAULT NULL,
   `room_id` int(11) DEFAULT NULL,
   `staff_id` int(11) DEFAULT NULL,
-  `admission_date` datetime DEFAULT NULL,
-  `discharge_date` datetime DEFAULT NULL,
+  `admission_date` date DEFAULT NULL,
+  `discharge_date` date DEFAULT NULL,
   `reason` text DEFAULT NULL,
   `insurance_approval` tinyint(1) DEFAULT NULL,
   `initial_diagnosis` text DEFAULT NULL,
   `treatment_plan` text DEFAULT NULL,
-  `nurse_id` int(11) DEFAULT NULL,
   `notes` text DEFAULT NULL,
   `consulting_doctor` int(11) DEFAULT NULL,
   `is_critical` tinyint(1) DEFAULT NULL,
@@ -56,12 +55,13 @@ CREATE TABLE `addmissions` (
 -- Dumping data for table `addmissions`
 --
 
-INSERT INTO `addmissions` (`id`, `patient_id`, `room_id`, `staff_id`, `admission_date`, `discharge_date`, `reason`, `insurance_approval`, `initial_diagnosis`, `treatment_plan`, `nurse_id`, `notes`, `consulting_doctor`, `is_critical`, `has_attendant`, `attendant_name`, `discharge_summary`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(1, 1, 0, 0, '2025-06-01 00:00:00', '2025-06-03 00:00:00', 'gnbfg', NULL, 'fgnf', 'gfnf', 0, '', 0, 0, 0, 'ghfg', 'ngfn', 0, '2025-06-01 06:40:41', '2025-06-01 06:45:22', 1, 1),
-(2, 1, 0, 0, '2025-06-01 00:00:00', '2025-06-03 00:00:00', 'gnbfg', NULL, 'fgnf', 'gfnf', 0, '', 0, 0, 0, 'ghfg', 'ngfn', 0, '2025-06-01 06:40:52', '2025-06-01 06:45:21', 1, 1),
-(3, 0, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', NULL, '', '', 0, '', 0, 0, 0, '', '', 0, '2025-06-01 06:42:07', '2025-06-01 06:45:20', 1, 1),
-(4, 1, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', NULL, '', '', 0, '', 0, 0, 0, '', '', 0, '2025-06-01 06:42:24', '2025-06-01 06:45:19', 1, 1),
-(5, 1, 0, 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', '', NULL, '', '', 0, '', 0, 0, 0, '', '', 0, '2025-06-01 06:45:32', '2025-06-01 06:45:40', 1, 1);
+INSERT INTO `addmissions` (`id`, `patient_id`, `room_id`, `staff_id`, `admission_date`, `discharge_date`, `reason`, `insurance_approval`, `initial_diagnosis`, `treatment_plan`, `notes`, `consulting_doctor`, `is_critical`, `has_attendant`, `attendant_name`, `discharge_summary`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(1, 1, 0, 0, '2025-06-01', '2025-06-03', 'gnbfg', NULL, 'fgnf', 'gfnf', '', 0, 0, 0, 'ghfg', 'ngfn', 0, '2025-06-01 06:40:41', '2025-06-01 06:45:22', 1, 1),
+(2, 1, 0, 0, '2025-06-01', '2025-06-03', 'gnbfg', NULL, 'fgnf', 'gfnf', '', 0, 0, 0, 'ghfg', 'ngfn', 0, '2025-06-01 06:40:52', '2025-06-01 06:45:21', 1, 1),
+(3, 0, 0, 0, '0000-00-00', '0000-00-00', '', NULL, '', '', '', 0, 0, 0, '', '', 0, '2025-06-01 06:42:07', '2025-06-01 06:45:20', 1, 1),
+(4, 1, 0, 0, '0000-00-00', '0000-00-00', '', NULL, '', '', '', 0, 0, 0, '', '', 0, '2025-06-01 06:42:24', '2025-06-01 06:45:19', 1, 1),
+(5, 1, 0, 0, '0000-00-00', '0000-00-00', '', NULL, '', '', '', 0, 0, 0, '', '', 0, '2025-06-01 06:45:32', '2025-06-01 06:45:40', 1, 1),
+(6, 3, 1, 1, '2025-06-17', '0000-00-00', '', NULL, '', '', '', 0, 0, 0, '', '', 1, '2025-06-17 06:02:11', NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -115,6 +115,7 @@ CREATE TABLE `billing` (
   `discount` decimal(10,2) DEFAULT NULL,
   `tax` decimal(10,2) DEFAULT NULL,
   `final_amount` decimal(10,2) DEFAULT NULL,
+  `paid_amount` decimal(10,2) DEFAULT NULL,
   `payment_status` varchar(20) DEFAULT NULL,
   `payment_method` varchar(50) DEFAULT NULL,
   `payment_date` date DEFAULT NULL,
@@ -131,6 +132,14 @@ CREATE TABLE `billing` (
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `billing`
+--
+
+INSERT INTO `billing` (`id`, `patient_id`, `appointment_id`, `total_amount`, `discount`, `tax`, `final_amount`, `paid_amount`, `payment_status`, `payment_method`, `payment_date`, `billing_date`, `invoice_number`, `remarks`, `staff_id`, `is_insured`, `insurance_covered_amount`, `due_amount`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(3, 3, 0, '750.00', '50.00', '0.00', '700.00', '700.00', 'Paid', '', '0000-00-00', '2025-06-21', '', '', 1, 0, '0.00', '0.00', 1, '2025-06-21 09:09:40', '2025-06-21 09:41:02', 0, 1),
+(4, 3, 0, '750.00', '50.00', '0.00', '700.00', '700.00', 'Paid', '', '0000-00-00', '2025-06-21', '', '', 1, 0, '0.00', '0.00', 1, '2025-06-21 09:40:26', '2025-06-21 09:41:02', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -151,6 +160,16 @@ CREATE TABLE `billing_details` (
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `billing_details`
+--
+
+INSERT INTO `billing_details` (`id`, `billing_id`, `admission_id`, `test_id`, `qty`, `amount`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(1, 3, NULL, 2, '1.00', '250.00', 1, NULL, NULL, NULL, NULL),
+(2, 3, NULL, 1, '1.00', '500.00', 1, NULL, NULL, NULL, NULL),
+(3, 4, NULL, 2, '1.00', '250.00', 1, NULL, NULL, NULL, NULL),
+(4, 4, NULL, 1, '1.00', '500.00', 1, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -504,7 +523,8 @@ CREATE TABLE `rooms_type` (
 --
 
 INSERT INTO `rooms_type` (`id`, `type`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(1, 'AC', 1, NULL, NULL, NULL, NULL);
+(1, 'AC', 1, NULL, NULL, NULL, NULL),
+(2, 'Non Ac', 1, '2025-06-21 07:59:35', NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -611,6 +631,14 @@ CREATE TABLE `test` (
   `created_by` int(11) DEFAULT NULL,
   `updated_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `test`
+--
+
+INSERT INTO `test` (`id`, `name`, `amount`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
+(1, 'ECG', '500.00', 1, '2025-06-21 08:11:41', NULL, 1, NULL),
+(2, 'Blood Group', '250.00', 1, '2025-06-21 08:12:18', NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -1157,36 +1185,6 @@ CREATE TABLE `user` (
 INSERT INTO `user` (`id`, `name`, `contact_no`, `email`, `password`, `is_active`, `role_id`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
 (1, 'Hasan', '015', 'hr492785@gmail.com', '7b52009b64fd0a2a49e6d8a939753077792b0554', 1, 2, 1, NULL, NULL, NULL, NULL);
 
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
-  `username` varchar(50) DEFAULT NULL,
-  `password_hash` varchar(255) DEFAULT NULL,
-  `role` varchar(50) DEFAULT NULL,
-  `staff_id` int(11) DEFAULT NULL,
-  `patient_id` int(11) DEFAULT NULL,
-  `email` varchar(100) DEFAULT NULL,
-  `phone` varchar(15) DEFAULT NULL,
-  `is_active` tinyint(1) DEFAULT NULL,
-  `last_login` datetime DEFAULT NULL,
-  `timezone` varchar(50) DEFAULT NULL,
-  `security_question` varchar(255) DEFAULT NULL,
-  `security_answer` varchar(255) DEFAULT NULL,
-  `login_attempts` int(11) DEFAULT NULL,
-  `locked_until` datetime DEFAULT NULL,
-  `profile_image` varchar(255) DEFAULT NULL,
-  `status` int(11) DEFAULT NULL,
-  `created_at` datetime DEFAULT NULL,
-  `updated_at` datetime DEFAULT NULL,
-  `created_by` int(11) DEFAULT NULL,
-  `updated_by` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 --
 -- Indexes for dumped tables
 --
@@ -1199,7 +1197,6 @@ ALTER TABLE `addmissions`
   ADD KEY `patient_id` (`patient_id`),
   ADD KEY `room_id` (`room_id`),
   ADD KEY `staff_id` (`staff_id`),
-  ADD KEY `nurse_id` (`nurse_id`),
   ADD KEY `consulting_doctor` (`consulting_doctor`);
 
 --
@@ -1354,14 +1351,6 @@ ALTER TABLE `user`
   ADD UNIQUE KEY `email` (`email`);
 
 --
--- Indexes for table `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`),
-  ADD KEY `staff_id` (`staff_id`),
-  ADD KEY `patient_id` (`patient_id`);
-
---
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -1369,7 +1358,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `addmissions`
 --
 ALTER TABLE `addmissions`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `appointments`
@@ -1381,13 +1370,13 @@ ALTER TABLE `appointments`
 -- AUTO_INCREMENT for table `billing`
 --
 ALTER TABLE `billing`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `billing_details`
 --
 ALTER TABLE `billing_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `departments`
@@ -1441,7 +1430,7 @@ ALTER TABLE `rooms`
 -- AUTO_INCREMENT for table `rooms_type`
 --
 ALTER TABLE `rooms_type`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `schedules`
@@ -1465,7 +1454,7 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT for table `test`
 --
 ALTER TABLE `test`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user`

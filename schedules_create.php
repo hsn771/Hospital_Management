@@ -27,7 +27,7 @@
                             <form method="post" enctype="multipart/form-data" action="">
                                 <div class="form-group">
                                     <label for="room_nuschedule_idmber">Schedule Id</label>
-                                     <input type="number" class="form-control" id="roschedule_id" name="schedule_id"
+                                     <input type="number" class="form-control" id="schedule_id" name="schedule_id"
                                         aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
@@ -46,7 +46,7 @@
                                         aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
-                                    <label for="end_time">End Tim</label>
+                                    <label for="end_time">End Time</label>
                                     <input type="number" class="form-control" id="end_time" name="end_time">
                                 </div>
                                 <div class="form-group">

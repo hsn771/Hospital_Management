@@ -34,19 +34,42 @@
                             <h4 class="header-title">Update Appointment Form</h4>
                             <form method="post" enctype="multipart/form-data" action="">
                                  <div class="form-group">
-                                    <label for="patient_id">Patient Id</label>
-                                    <input type="number" class="form-control" id="patient_id" value="<?= $data->patient_id ?>" name="patient_id"
-                                        aria-describedby="emailHelp">
+                                    <label for="patient_id">Patient</label>
+                                    <select class="form-control" id="patient_id" name="patient_id">
+                                        <?php
+                                        $res = $mysqli->common_select('patients');
+                                        if (!$res['error']) {
+                                            foreach ($res['data'] as $key => $value) {
+                                        ?>
+                                                <option value="<?= $value->id ?>" <?= $data->patient_id==$value->id?"selected":"" ?>><?= $value->full_name ?></option>
+                                        <?php      }
+                                            }
+                                        ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="gender">Staff Id</label>
-                                     <input type="number" class="form-control" id="staff_id" value="<?= $data->staff_id ?>" name="staff_id"
-                                        aria-describedby="emailHelp">
+                                    <label for="gender">Doctor </label>
+                                    <select class="form-control" id="staff_id" name="staff_id">
+                                        <?php
+                                        $res = $mysqli->common_select('user');
+                                        if (!$res['error']) {
+                                            foreach ($res['data'] as $key => $value) {
+                                        ?>
+                                                <option value="<?= $value->id ?>" <?= $data->staff_id==$value->id?"selected":"" ?>><?= $value->name ?></option>
+                                        <?php } } ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="date_of_birth">Room Id</label>
-                                    <input type="number" class="form-control" id="room_id" value="<?= $data->room_id ?>" name="room_id"
-                                        aria-describedby="emailHelp">
+                                    <label for="date_of_birth">Room</label>
+                                    <select class="form-control" id="room_id" name="room_id">
+                                        <?php
+                                        $res = $mysqli->common_select('rooms');
+                                        if (!$res['error']) {
+                                            foreach ($res['data'] as $key => $value) {
+                                        ?>
+                                                <option value="<?= $value->id.'-'.$value->price_per_day ?>" <?= $data->room_id==$value->id?"selected":"" ?>><?= $value->room_number ?></option>
+                                        <?php } } ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="Admission Date">Admission Date</label>
@@ -73,11 +96,7 @@
                                     <input type="text" class="form-control" id="treatment_plan" value="<?= $data->treatment_plan ?>"
                                         name="treatment_plan" placeholder="treatment_plan">
                                 </div>
-                                <div class="form-group">
-                                    <label for="Nurse Id">Nurse Id</label>
-                                    <input type="number" class="form-control" id="nurse_id" value="<?= $data->nurse_id ?>" name="nurse_id"
-                                        placeholder="nurse_id">
-                                </div>
+                                
                                 <div class="form-group">
                                     <label for="Notes">Notes</label>
                                     <input type="text" class="form-control" id="notes" value="<?= $data->notes ?>"
@@ -113,14 +132,60 @@
                             </form>
                             <?php
                       if($_POST){
+                        $room_price=explode('-',$_POST['room_id'])[1];
+                        $_POST['room_id']=explode('-',$_POST['room_id'])[0];
                         $_POST['updated_at']=date('Y-m-d H:i:s');
                         $_POST['updated_by']=$_SESSION['user']->id;
                         $res=$mysqli->common_update('addmissions',$_POST,$where);
                         if(!$res['error']){
+                            if($_POST['discharge_date']!=''){
+                               addmission_bill_add($_POST,$room_price,$mysqli);
+                            }
                           echo "<script>location.href='".$baseurl."addmissions.php'</script>";
                         }else{
                           echo $res['error_msg'];
                         }
+                      }
+
+
+                      function addmission_bill_add($data,$room_price,$mysqli){
+                        $date_defference = date_diff(date_create($data['discharge_date']), date_create($data['admission_date']));
+                        
+                        $bill['patient_id'] = $data['patient_id'];
+                        $bill['staff_id'] = $data['staff_id'];
+                        $bill['addmission_id'] = $_GET['id'];
+                        $bill['billing_date'] = $data['discharge_date'];
+                        $bill['total_amount'] = $date_defference->format('%a') * $room_price;
+                        $bill['discount'] = 0;
+                        $bill['final_amount'] = $date_defference->format('%a') * $room_price;
+                        $bill['paid_amount'] = 0;
+                        $bill['due_amount'] = $date_defference->format('%a') * $room_price;
+                        $bill['status'] = 1;
+                        $bill['created_at'] = date('Y-m-d H:i:s');
+                        $bill['updated_at'] = date('Y-m-d H:i:s');
+
+                        // Calculate due amount
+                       
+                        $bill['payment_status'] =  'Unpaid';
+                        
+                        $billres = $mysqli->common_insert('billing', $bill);
+                        
+                        if (!$billres['error']) {
+                            $bill_item = array(
+                                'billing_id' => $billres['data'],
+                                'admission_id' => $_GET['id'],
+                                'qty' => $date_defference->format('%a'),
+                                'amount' => $bill['final_amount'],
+                                'status' => 1
+                            );
+                            
+                            $resi = $mysqli->common_insert('billing_details', $bill_item);
+                            
+                            return "success";
+                        } else {
+                            return "failed";
+                        }
+                            
                       }
                   ?>
                         </div>

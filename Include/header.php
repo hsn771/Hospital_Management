@@ -30,6 +30,68 @@ if(!isset($_SESSION['log_user_status']) && $_SESSION['log_user_status']!==true){
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- modernizr css -->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
+     <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .prescription-pad {
+            background-color: white;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 25px;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        .prescription-header {
+            border-bottom: 2px solid #007bff;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+        }
+        .hospital-logo {
+            max-height: 80px;
+        }
+        .prescription-title {
+            color: #007bff;
+            font-weight: bold;
+        }
+        .patient-info {
+            background-color: #f1f8ff;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .medicine-table th {
+            background-color: #007bff;
+            color: white;
+        }
+        .doctor-signature {
+            margin-top: 50px;
+            border-top: 1px dashed #6c757d;
+            padding-top: 10px;
+        }
+        .watermark {
+            opacity: 0.1;
+            position: absolute;
+            z-index: -1;
+            font-size: 80px;
+            color: #007bff;
+            transform: rotate(-30deg);
+            left: 20%;
+            top: 30%;
+        }
+        .prescription-footer {
+            font-size: 12px;
+            color: #6c757d;
+            margin-top: 20px;
+            border-top: 1px solid #dee2e6;
+            padding-top: 10px;
+        }
+        .section-label {
+           font-weight: bold;
+           margin-bottom: 10px;
+       }
+    </style>
 </head>
 
 <body>

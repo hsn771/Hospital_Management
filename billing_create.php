@@ -50,7 +50,7 @@ include_once 'Include/header.php';
                                         <div class="form-group">
                                             <label for="staff_id">Doctor </label>
                                             <select class="form-control" id="staff_id" name="staff_id">
-                                                <option value="">Select Patient</option>
+                                                <option value="">Select Doctor</option>
                                                 <?php
                                                 $res = $mysqli->common_select('user');
                                                 if (!$res['error']) {

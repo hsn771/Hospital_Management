@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2025 at 09:43 AM
+
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -61,7 +61,6 @@ INSERT INTO `addmissions` (`id`, `patient_id`, `room_id`, `staff_id`, `admission
 (3, 0, 0, 0, '0000-00-00', '0000-00-00', '', NULL, '', '', '', 0, 0, 0, '', '', 0, '2025-06-01 06:42:07', '2025-06-01 06:45:20', 1, 1),
 (4, 1, 0, 0, '0000-00-00', '0000-00-00', '', NULL, '', '', '', 0, 0, 0, '', '', 0, '2025-06-01 06:42:24', '2025-06-01 06:45:19', 1, 1),
 (5, 1, 0, 0, '0000-00-00', '0000-00-00', '', NULL, '', '', '', 0, 0, 0, '', '', 0, '2025-06-01 06:45:32', '2025-06-01 06:45:40', 1, 1),
-(6, 3, 1, 1, '2025-06-17', '0000-00-00', '', NULL, '', '', '', 0, 0, 0, '', '', 1, '2025-06-17 06:02:11', NULL, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -111,6 +110,7 @@ CREATE TABLE `billing` (
   `id` int(11) NOT NULL,
   `patient_id` int(11) DEFAULT NULL,
   `appointment_id` int(11) DEFAULT NULL,
+  `addmission_id` int(11) DEFAULT NULL,
   `total_amount` decimal(10,2) DEFAULT NULL,
   `discount` decimal(10,2) DEFAULT NULL,
   `tax` decimal(10,2) DEFAULT NULL,
@@ -136,10 +136,6 @@ CREATE TABLE `billing` (
 --
 -- Dumping data for table `billing`
 --
-
-INSERT INTO `billing` (`id`, `patient_id`, `appointment_id`, `total_amount`, `discount`, `tax`, `final_amount`, `paid_amount`, `payment_status`, `payment_method`, `payment_date`, `billing_date`, `invoice_number`, `remarks`, `staff_id`, `is_insured`, `insurance_covered_amount`, `due_amount`, `status`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
-(3, 3, 0, '750.00', '50.00', '0.00', '700.00', '700.00', 'Paid', '', '0000-00-00', '2025-06-21', '', '', 1, 0, '0.00', '0.00', 1, '2025-06-21 09:09:40', '2025-06-21 09:41:02', 0, 1),
-(4, 3, 0, '750.00', '50.00', '0.00', '700.00', '700.00', 'Paid', '', '0000-00-00', '2025-06-21', '', '', 1, 0, '0.00', '0.00', 1, '2025-06-21 09:40:26', '2025-06-21 09:41:02', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -169,7 +165,6 @@ INSERT INTO `billing_details` (`id`, `billing_id`, `admission_id`, `test_id`, `q
 (1, 3, NULL, 2, '1.00', '250.00', 1, NULL, NULL, NULL, NULL),
 (2, 3, NULL, 1, '1.00', '500.00', 1, NULL, NULL, NULL, NULL),
 (3, 4, NULL, 2, '1.00', '250.00', 1, NULL, NULL, NULL, NULL),
-(4, 4, NULL, 1, '1.00', '500.00', 1, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1370,13 +1365,13 @@ ALTER TABLE `appointments`
 -- AUTO_INCREMENT for table `billing`
 --
 ALTER TABLE `billing`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 
 --
 -- AUTO_INCREMENT for table `billing_details`
 --
 ALTER TABLE `billing_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
 
 --
 -- AUTO_INCREMENT for table `departments`

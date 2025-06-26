@@ -19,9 +19,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="col-sm-6 text-right">
-                <a href="<?= $baseurl ?>prescriptions_create.php" class="btn btn-success btn-sm"><i class="fa fa-plus"></i> Add New Prescription</a>
-            </div>
+           
         </div>
     </div>
     <!-- page title area end -->

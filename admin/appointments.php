@@ -59,6 +59,9 @@
                                                         <td><?= $d->notes ?></td>
                                                         <td><?= $d->serial_no ?></td>
                                                         <td>
+                                                            <a href="<?= $baseurl ?>prescriptions_create.php?patient_id=<?= $d->patient_id ?>&doctor_id=<?= $d->staff_id ?>&appointment_id=<?= $d->id?>" class="btn btn-info btn-xs" title="Edit">
+                                                                <i class="fa fa-list"></i>
+                                                            </a>
                                                             <a href="<?= $baseurl ?>appointments_show.php?id=<?= $d->id ?>"
                                                                 class="btn btn-info btn-xs" title="Edit">
                                                                 <i class="fa fa-eye"></i>

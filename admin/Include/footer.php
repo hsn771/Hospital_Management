@@ -1,5 +1,5 @@
 <!-- footer area start-->
-        <footer>
+        <footer class=" no-print">
             <div class="footer-area">
                 <p>All right reserved.</p>
             </div>

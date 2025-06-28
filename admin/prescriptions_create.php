@@ -79,6 +79,13 @@
         </div>
     </div>
     <?php
+        $appointment_id = $_GET['appointment_id'];
+        $pre_data = $mysqli->common_select('prescriptions','*',['appointment_id'=>$appointment_id]);
+        
+        if(!$pre_data['error']){
+            echo "<script>location.href='".$baseurl."prescriptions_show.php?id=".$pre_data['data'][0]->id."'</script>";
+        }
+
         $patient_id = $_GET['patient_id'];
         $patient_data = $mysqli->common_select('patients','*',['id'=>$patient_id]);
         $patient_data=$patient_data['data'][0];

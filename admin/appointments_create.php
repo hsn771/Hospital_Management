@@ -19,6 +19,7 @@
                     </ul>
                 </div>
             </div>
+            
             <div class="col-sm-12 clearfix">
                 <div class="col-12 mt-5">
                     <div class="card">
@@ -29,10 +30,10 @@
                                     <label for="patient_id">Patient</label>
                                     <select class="form-control" id="patient_id" name="patient_id">
                                         <?php
-                                        $res = $mysqli->common_select('patients');
-                                        if (!$res['error']) {
-                                            foreach ($res['data'] as $key => $value) {
-                                                echo '<option value="' . $value->id . '">' . $value->full_name . '</option>';
+                                            $res = $mysqli->common_select('patients');
+                                            if (!$res['error']) {
+                                                foreach ($res['data'] as $key => $value) {
+                                                    echo '<option value="' . $value->id . '">' . $value->full_name . '</option>';
                                                 }
                                             }
                                         ?>

@@ -53,9 +53,9 @@
                                                         <td><?= $d->pres_date ?></td>
                                                         <td><?= $d->next_visit_day ?></td>
                                                         <td>
-                                                            <a href="<?= $baseurl ?>prescriptions_edit.php?id=<?= $d->id ?>"
+                                                            <a href="<?= $baseurl ?>prescriptions_show.php?id=<?= $d->id ?>"
                                                                 class="btn btn-info btn-xs" title="Edit">
-                                                                <i class="fa fa-edit"></i>
+                                                                <i class="fa fa-eye"></i>
                                                             </a>
                                                             <a href="<?= $baseurl ?>prescriptions_delete.php?id=<?= $d->id ?>"
                                                                 class="btn btn-danger btn-xs" title="Delete">

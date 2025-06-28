@@ -60,7 +60,7 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">Medilab</a></h1>
+      <h1 class="logo me-auto"><a href="index.html">Rightway Hospital</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -101,7 +101,7 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container">
-      <h1>Welcome to Medilab</h1>
+      <h1>Welcome to Rightway Hospital</h1>
       <h2>We are team of talented designers making websites with Bootstrap</h2>
       <a href="#about" class="btn-get-started scrollto">Get Started</a>
     </div>
@@ -310,57 +310,57 @@
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
-        <form action="forms/appointment.php" method="post" role="form" class="php-email-form">
+        <form action="admin/appointments_create.php" method="post" role="form" class="php-email-form">
           <div class="row">
-            <div class="col-md-4 form-group">
-              <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email">
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3 mt-md-0">
-              <input type="tel" class="form-control" name="phone" id="phone" placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4 form-group mt-3">
-              <input type="datetime" name="date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3">
-              <select name="department" id="department" class="form-select">
-                <option value="">Select Department</option>
-                <option value="Department 1">Department 1</option>
-                <option value="Department 2">Department 2</option>
-                <option value="Department 3">Department 3</option>
-              </select>
-              <div class="validate"></div>
-            </div>
-            <div class="col-md-4 form-group mt-3">
-              <select name="doctor" id="doctor" class="form-select">
-                <option value="">Select Doctor</option>
-                <option value="Doctor 1">Doctor 1</option>
-                <option value="Doctor 2">Doctor 2</option>
-                <option value="Doctor 3">Doctor 3</option>
-              </select>
-              <div class="validate"></div>
-            </div>
-          </div>
-
-          <div class="form-group mt-3">
-            <textarea class="form-control" name="message" rows="5" placeholder="Message (Optional)"></textarea>
-            <div class="validate"></div>
-          </div>
-          <div class="mb-3">
-            <div class="loading">Loading</div>
-            <div class="error-message"></div>
-            <div class="sent-message">Your appointment request has been sent successfully. Thank you!</div>
-          </div>
+  <div class="col-md-6 form-group">
+    <input type="text" name="patient_id" class="form-control" id="patient_id" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+    <div class="validate"></div>
+  </div>
+  <div class="col-md-6 form-group mt-3 mt-md-0">
+    <input type="text" class="form-control" name="staff_id" id="staff_id" placeholder="Doctor" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+    <div class="validate"></div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-4 form-group mt-3">
+    <input type="date" name="appointment_date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+    <div class="validate"></div>
+  </div>
+  <div class="col-md-4 form-group mt-3">
+    <select name="purpose" id="purpose" class="form-select">
+      <option value="">Select Purpose</option>
+      <option value="New Patient">New Patient</option>
+      <option value="Follow-up">Follow-up</option>
+      <option value="Emergency">Emergency</option>
+      <option value="Routine/Check-up">Routine/Check-up</option>
+    </select>
+    <div class="validate"></div>
+  </div>
+  <div class="col-md-4 form-group mt-3">
+    <input type="time" name="start_time" class="form-control" id="time" placeholder="Preferred Time">
+    <div class="validate"></div>
+  </div>
+</div>
+<div class="form-group mt-3">
+  <textarea class="form-control" name="notes" rows="5" placeholder="complain"></textarea>
+  <div class="validate"></div>
+</div>
           <div class="text-center"><button type="submit">Make an Appointment</button></div>
         </form>
+        <?php
+
+                            if ($_POST) {
+                                $_POST['created_at'] = date('Y-m-d H:i:s');
+                                $_POST['created_by'] = $_SESSION['user']->id;
+                                $_POST['status'] = 1;
+                                $res = $mysqli->common_insert('appointments', $_POST);
+                                if (!$res['error']) {
+                                    echo "<script>location.href='" . $baseurl . "appointments.php'</script>";
+                                } else {
+                                    echo $res['error_msg'];
+                                }
+                            }
+                            ?>
 
       </div>
     </section><!-- End Appointment Section -->

@@ -12,7 +12,7 @@
         <div class="row align-items-center">
             <div class="col-sm-6">
                 <div class="breadcrumbs-area clearfix">
-                    <h4 class="page-title pull-left">Prescription</h4>
+                    <h4 class="page-title pull-left">Test</h4>
                     <ul class="breadcrumbs pull-left">
                         <li><a href="index.html">Home</a></li>
         
@@ -23,41 +23,42 @@
                 <div class="col-lg-12 mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">Prescription list</h4>
+                            <h4 class="header-title">Company Setting</h4>
                             <div class="single-table">
                                 <div class="table-responsive">
                                     <table class="table table-bordered text-center">
                                         <thead class="text-uppercase">
                                             <tr>
                                                 <th scope="col">ID</th>
-                                                <th scope="col">Patient</th>
-                                                <th scope="col">Doctor</th>
-                                                <th scope="col">Prescription Date</th>
-                                                <th scope="col">Next Visit Day</th>
+                                                <th scope="col">Name</th>
+                                                <th scope="col">slogan</th>
+                                                <th scope="col">address</th>
+                                                <th scope="col">contact</th>
+                                                <th scope="col">logo</th>
                                                 <th scope="col">Action</th>
+                                                
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $data = $mysqli->common_query('SELECT prescriptions.*, patients.full_name,patients.phone,user.name, user.contact_no FROM `prescriptions` 
-                                                                                JOIN patients on patients.id=prescriptions.patient_id 
-                                                                                JOIN user on user.id=prescriptions.staff_id 
-                                                                                WHERE prescriptions.status=1');
+                                            $data = $mysqli->common_select('company_setting');
                                             if (!$data['error']) {
                                                 foreach ($data['data'] as $i => $d) {
                                                     ?>
                                                     <tr>
                                                         <td><?= ++$i ?></td>
-                                                        <td><?= $d->full_name ?> (<?= $d->phone ?>)</td>
-                                                        <td><?= $d->name ?> (<?= $d->contact_no ?>)</td>
-                                                        <td><?= $d->pres_date ?></td>
-                                                        <td><?= $d->next_visit_day ?></td>
+                                                        <td><?= $d->name ?></td>
+                                                        <td><?= $d->slogan ?></td>
+                                                        <td><?= $d->address ?></td>
+                                                        <td><?= $d->contact ?></td>
+                                                        <td><img src="<?= $baseurl ?>uploads/<?= $d->logo ?>" alt="" width="100"></td>
                                                         <td>
-                                                            <a href="<?= $baseurl ?>prescriptions_edit.php?id=<?= $d->id ?>"
+
+                                                            <a href="<?= $baseurl ?>company_setting_edit.php?id=<?= $d->id ?>"
                                                                 class="btn btn-info btn-xs" title="Edit">
                                                                 <i class="fa fa-edit"></i>
                                                             </a>
-                                                            <a href="<?= $baseurl ?>prescriptions_delete.php?id=<?= $d->id ?>"
+                                                            <a href="<?= $baseurl ?>company_setting_delete.php?id=<?= $d->id ?>"
                                                                 class="btn btn-danger btn-xs" title="Delete">
                                                                 <i class="fa fa-trash"></i>
                                                             </a>

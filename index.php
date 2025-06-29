@@ -1,3 +1,5 @@
+<?php
+include 'include/connection.php'; ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -310,57 +312,86 @@
           <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
         </div>
 
-        <form action="admin/appointments_create.php" method="post" role="form" class="php-email-form">
+        <form action="" method="post" role="form" >
           <div class="row">
-  <div class="col-md-6 form-group">
-    <input type="text" name="patient_id" class="form-control" id="patient_id" placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-    <div class="validate"></div>
-  </div>
-  <div class="col-md-6 form-group mt-3 mt-md-0">
-    <input type="text" class="form-control" name="staff_id" id="staff_id" placeholder="Doctor" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-    <div class="validate"></div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-4 form-group mt-3">
-    <input type="date" name="appointment_date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
-    <div class="validate"></div>
-  </div>
-  <div class="col-md-4 form-group mt-3">
-    <select name="purpose" id="purpose" class="form-select">
-      <option value="">Select Purpose</option>
-      <option value="New Patient">New Patient</option>
-      <option value="Follow-up">Follow-up</option>
-      <option value="Emergency">Emergency</option>
-      <option value="Routine/Check-up">Routine/Check-up</option>
-    </select>
-    <div class="validate"></div>
-  </div>
-  <div class="col-md-4 form-group mt-3">
-    <input type="time" name="start_time" class="form-control" id="time" placeholder="Preferred Time">
-    <div class="validate"></div>
-  </div>
-</div>
-<div class="form-group mt-3">
-  <textarea class="form-control" name="notes" rows="5" placeholder="complain"></textarea>
-  <div class="validate"></div>
-</div>
-          <div class="text-center"><button type="submit">Make an Appointment</button></div>
+            <div class="col-md-4 form-group">
+              <input type="text" name="full_name" class="form-control" id="full_name" required placeholder="Your Name" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-md-4 form-group">
+              <input type="text" name="phone" class="form-control" id="phone" required placeholder="Your Phone" data-rule="minlen:4" data-msg="Please enter at least 4 chars" >
+              <div class="validate"></div>
+            </div>
+            <div class="col-md-4 form-group mt-3 mt-md-0">
+              <select class="form-control" id="staff_id" name="staff_id">
+                <option value="">Select Doctor</option>
+                  <?php
+                  $res = $mysqli->common_select('user');
+                  if (!$res['error']) {
+                      foreach ($res['data'] as $key => $value) {
+                          echo '<option value="' . $value->id . '">' . $value->name . '</option>';
+                          }
+                      }
+                  ?>
+              </select>
+              <div class="validate"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4 form-group mt-3">
+              <input type="date" name="appointment_date" class="form-control datepicker" id="date" placeholder="Appointment Date" data-rule="minlen:4" data-msg="Please enter at least 4 chars">
+              <div class="validate"></div>
+            </div>
+            <div class="col-md-4 form-group mt-3">
+              <select name="purpose" id="purpose" class="form-select">
+                <option value="">Select Purpose</option>
+                <option value="New Patient">New Patient</option>
+                <option value="Follow-up">Follow-up</option>
+                <option value="Emergency">Emergency</option>
+                <option value="Routine/Check-up">Routine/Check-up</option>
+              </select>
+              <div class="validate"></div>
+            </div>
+            <div class="col-md-4 form-group mt-3">
+              <input type="time" name="start_time" class="form-control" id="time" placeholder="Preferred Time">
+              <div class="validate"></div>
+            </div>
+          </div>
+          <div class="form-group mt-3">
+            <textarea class="form-control" name="notes" rows="5" placeholder="complain"></textarea>
+            <div class="validate"></div>
+          </div>
+          <div class="text-center"><button class="btn btn-primary" type="submit">Make an Appointment</button></div>
         </form>
         <?php
-
-                            if ($_POST) {
-                                $_POST['created_at'] = date('Y-m-d H:i:s');
-                                $_POST['created_by'] = $_SESSION['user']->id;
-                                $_POST['status'] = 1;
-                                $res = $mysqli->common_insert('appointments', $_POST);
-                                if (!$res['error']) {
-                                    echo "<script>location.href='" . $baseurl . "appointments.php'</script>";
-                                } else {
-                                    echo $res['error_msg'];
-                                }
-                            }
-                            ?>
+          if ($_POST) {
+              $user_contact['phone']=$_POST['phone'];
+              $old_patient = $mysqli->common_select('patients', '*', $user_contact);
+              if (!$old_patient['error']) {
+                  $_POST['patient_id'] = $old_patient['data'][0]->id;
+              } else {
+                $patient['full_name'] = $_POST['full_name'];
+                $patient['phone'] = $_POST['phone'];
+                $patient['created_at'] = date('Y-m-d H:i:s');
+                $patient['status'] = 1;
+                $_POST['patient_id'] = $mysqli->common_insert('patients', $patient)['data'];
+              }
+              $app['patient_id'] = $_POST['patient_id'];
+              $app['staff_id'] = $_POST['staff_id'];
+              $app['appointment_date'] = $_POST['appointment_date'];
+              $app['start_time'] = $_POST['start_time'];
+              $app['purpose'] = $_POST['purpose'];
+              $app['notes'] = $_POST['notes'];
+              $app['created_at'] = date('Y-m-d H:i:s');
+              $app['status'] = 1;
+              $res = $mysqli->common_insert('appointments', $app);
+              if (!$res['error']) {
+                  echo "<script>alert('Thank you for book appointment. We will contact soon.')</script>";
+              } else {
+                  echo $res['error_msg'];
+              }
+          }
+          ?>
 
       </div>
     </section><!-- End Appointment Section -->

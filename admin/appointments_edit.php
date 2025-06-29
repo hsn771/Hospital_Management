@@ -34,7 +34,7 @@
                             <h4 class="header-title">Update Appointment Form</h4>
                             <form method="post" enctype="multipart/form-data" action="">
                                 <div class="form-group">
-                                    <label for="patient_id">Patient Id</label>
+                                    <label for="patient_id">Patient</label>
                                     <select class="form-control" id="patient_id" name="patient_id">
                                         <?php
                                         $res = $mysqli->common_select('patients');
@@ -62,26 +62,26 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone">appointment_date</label>
+                                    <label for="Appointment Date">Appointment Date</label>
                                     <input type="date" class="form-control" id="appointment_date" value="<?= $data->appointment_date ?>" name="appointment_date"
                                         aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">start_time</label>
+                                    <label for="Start Time">Start Time</label>
                                     <input type="time" class="form-control" id="start_time" value="<?= $data->start_time ?>" name="start_time"
                                         aria-describedby="emailHelp">
                                 </div>
                                 <div class="form-group">
-                                    <label for="address">Purpose</label>
+                                    <label for="Purpose">Purpose</label>
                                     <input type="text" class="form-control" id="purpose" value="<?= $data->purpose ?>" name="purpose">
                                 </div>
                                 <div class="form-group">
-                                    <label for="text">notes</label>
+                                    <label for="Notes">Notes</label>
                                     <input type="text" class="form-control" id="notes" value="<?= $data->notes ?>"
-                                        name="notes" placeholder="notes">
+                                        name="notes" placeholder="Notes">
                                 </div>
                                 <div class="form-group">
-                                    <label for="nid_passport">appointment_type</label>
+                                    <label for="Appointment Type">Appointment Type</label>
                                     <select class="form-control" id="appointment_type" value="<?= $data->appointment_type ?>" name="appointment_type" aria-describedby="emailHelp">
                                         <option value="New Patient">New Patient</option>
                                         <option value="Follow-up">Follow-up</option>
@@ -90,35 +90,35 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="insurance_id">Patient Temperature</label>
+                                    <label for="Patient Temperature">Patient Temperature</label>
                                     <input type="text" class="form-control" id="patient_temperature" value="<?= $data->patient_temperature ?>"
-                                        name="patient_temperature" placeholder="patient_temperature">
+                                        name="patient_temperature" placeholder="Patient Temperature">
                                 </div>
                                 <div class="form-group">
-                                    <label for="bp_reading">Bp Reading</label>
+                                    <label for="Bp Reading">Bp Reading</label>
                                     <input type="text" class="form-control" id="bp_reading" value="<?= $data->bp_reading ?>" name="bp_reading"
-                                        placeholder="bp_reading">
+                                        placeholder="Bp Reading">
                                 </div>
                                 <div class="form-group">
-                                    <label for="registration_date">heart_rate</label>
+                                    <label for="Heart Rate">Heart Rate</label>
                                     <input type="text" class="form-control" id="heart_rate" value="<?= $data->heart_rate ?>"
-                                        name="heart_rate" placeholder="heart_rate">
+                                        name="heart_rate" placeholder="Heart Rate">
                                 </div>
                                 
                                 <div class="form-group">
-                                    <label for="source">Source</label>
+                                    <label for="Source">Source</label>
                                     <input type="text" class="form-control" id="source" value="<?= $data->source ?>" name="source"
-                                        placeholder="profile_image">
+                                        placeholder="Source">
                                 </div>
                                 <div class="form-group">
-                                    <label for="follow_up">Follow Up</label>
+                                    <label for="Follow Up">Follow Up</label>
                                     <input type="text" class="form-control" id="follow_up_required" name="follow_up_required"
-                                        placeholder="follow_up">
+                                        placeholder="Follow Up">
                                 </div>
                                 <div class="form-group">
-                                    <label for="serial_no">Serial No</label>
+                                    <label for="Serial No">Serial No</label>
                                     <input type="text" class="form-control" id="serial_no" value="<?= $data->serial_no ?>" name="serial_no"
-                                        placeholder="serial_no">
+                                        placeholder="Serial No">
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
                             </form>

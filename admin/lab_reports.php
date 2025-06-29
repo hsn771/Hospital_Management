@@ -30,28 +30,33 @@
                                         <thead class="text-uppercase">
                                             <tr>
                                                 <th scope="col">ID</th>
-                                                <th scope="col">Patient Id</th>
-                                                <th scope="col">Staff Id</th>
-                                                <th scope="col">test Type</th>
+                                                <th scope="col">Patient</th>
+                                                <th scope="col">Doctor</th>
+                                                <th scope="col">Test Type</th>
                                                 <th scope="col">Sample Collected Date</th>
                                                 <th scope="col">Test Date</th>
                                                 <th scope="col">Report Date</th>
                                                 <th scope="col">Result Summary</th>
                                                 <th scope="col">Document link</th>
+                                                <th scope="col">Action</th>
                                                
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                                            $data = $mysqli->common_select('lab_reports');
+                                            $data = $mysqli->common_query('SELECT lab_reports.*,patients.full_name,patients.phone,user.name,user.contact_no,test.name FROM `lab_reports`
+                                                                                   JOIN patients on patients.id=lab_reports.patient_id 
+                                                                                   JOIN user on user.id=lab_reports.staff_id 
+                                                                                   JOIN test on test.name=lab_reports.test_type 
+                                                                                   WHERE lab_reports.status=1');
                                             if (!$data['error']) {
                                                 foreach ($data['data'] as $i => $d) {
                                                     ?>
                                                     <tr>
                                                         <td><?= ++$i ?></td>
-                                                        <td><?= $d->patient_id ?></td>
-                                                        <td><?= $d->staff_id ?></td>
-                                                        <td><?= $d->test_type ?></td>
+                                                        <td><?= $d->full_name ?> (<?= $d->phone ?>)</td>
+                                                        <td><?= $d->name ?> (<?= $d->contact_no ?>)</td>
+                                                        <td><?= $d->name ?></td>
                                                         <td><?= $d->sample_collected_date ?></td>
                                                         <td><?= $d->test_date ?></td>
                                                         <td><?= $d->report_date ?></td>

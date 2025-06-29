@@ -64,7 +64,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="capacity">capacity</label>
+                                    <label for="capacity">Capacity</label>
                                     <input type="number" class="form-control" id="capacity" name="capacity"
                                          value="<?= $data->capacity;?>">
                                 </div>
@@ -82,19 +82,19 @@
                                 <div class="form-group">
                                     <label for="last_cleaned">Last Cleaned</label>
                                     <input type="date" class="form-control" id="last_cleaned" name="last_cleaned" value="<?= $data->last_cleaned;?>"
-                                        name="last_cleaned" placeholder="last_cleaned">
+                                        name="last_cleaned" placeholder="Last Cleaned">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="cleaning_status">Cleaning Status</label>
                                     <input type="text" class="form-control" id="cleaning_status" name="cleaning_status" value="<?= $data->cleaning_status;?>"
-                                        placeholder="cleaning_status">
+                                        placeholder="Cleaning Status">
                                 </div>
                             
                                 <div class="form-group">
                                     <label for="special_features">Special Features</label>
                                     <input type="text" class="form-control" id="special_features" name="special_features" value="<?= $data->special_features;?>"
-                                        placeholder="special_features">
+                                        placeholder="Special Features">
                                 </div>
                                 <div class="form-group">
                                     <label for="text">Has AC</label>

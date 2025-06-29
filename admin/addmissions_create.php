@@ -52,7 +52,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="date_of_birth">Room Number</label>
+                                    <label for="Room Number">Room Number</label>
                                     <select class="form-control" id="room_id" name="room_id">
                                         <?php
                                         $res = $mysqli->common_select('rooms');
@@ -78,52 +78,47 @@
                                     <label for="Reason">Reason</label>
                                     <input type="text" class="form-control" id="reason" name="reason">
                                 </div>
-                                <div class="form-group">
-                                    <label for="text">notes</label>
-                                    <input type="text" class="form-control" id="notes"
-                                        name="notes" placeholder="notes">
-                                </div>
-                                <div class="form-group">
+                                 <div class="form-group">
                                     <label for="Initial Diagnosis">Initial Diagnosis</label>
                                     <input type="text" class="form-control" id="initial_diagnosis"
-                                        name="initial_diagnosis" placeholder="initial_diagnosis">
+                                        name="initial_diagnosis" placeholder="Initial Diagnosis">
                                 </div>
                                 <div class="form-group">
                                     <label for="Treatment Plan">Treatment Plan</label>
                                     <input type="text" class="form-control" id="treatment_plan"
-                                        name="treatment_plan" placeholder="treatment_plan">
+                                        name="treatment_plan" placeholder="Treatment Plan">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="Notes">Notes</label>
                                     <input type="text" class="form-control" id="notes"
-                                        name="notes" placeholder="notes">
+                                        name="notes" placeholder="Notes">
                                 </div>
                                 
                                 <div class="form-group">
                                     <label for="Consulting Doctor">Consulting Doctor</label>
                                     <input type="text" class="form-control" id="consulting_doctor" name="consulting_doctor"
-                                        placeholder="profile_image">
+                                        placeholder="Consulting Doctor">
                                 </div>
                                 <div class="form-group">
                                     <label for="Is Critical">Is Critical</label>
                                     <input type="text" class="form-control" id="is_critical" name="is_critical"
-                                        placeholder="is_critical">
+                                        placeholder="Is Critical">
                                 </div>
                                 <div class="form-group">
                                     <label for="Has Attendant">Has Attendant</label>
                                     <input type="text" class="form-control" id="has_attendant" name="has_attendant"
-                                        placeholder="has_attendant">
+                                        placeholder="Has Attendant">
                                 </div>
                                  <div class="form-group">
                                     <label for="Has Attendant">Attendant Name</label>
                                     <input type="text" class="form-control" id="attendant_name" name="attendant_name"
-                                        placeholder="attendant_name">
+                                        placeholder="Attendant Name">
                                 </div>
                                  <div class="form-group">
                                     <label for="Discharge Summary">Discharge Summary</label>
                                     <input type="text" class="form-control" id="discharge_summary" name="discharge_summary"
-                                        placeholder="discharge_summary">
+                                        placeholder="Discharge Summary">
                                 </div>
                                 <button type="submit" class="btn btn-primary mt-4 pr-4 pl-4">Submit</button>
                             </form>

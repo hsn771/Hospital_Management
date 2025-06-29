@@ -37,11 +37,11 @@
                                     <table class="table table-bordered text-center">
                                         <thead class="text-uppercase">
                                             <tr>
-                                                <th scope="col">Patient Id</th>
+                                                <th scope="col">Patient</th>
                                                 <td><?= $appointments->patient_id ?></td>
                                             </tr>
                                             <tr>
-                                                <th scope="col">Staff Id</th>
+                                                <th scope="col">Doctor</th>
                                                 <td><?= $appointments->staff_id ?></td>
                                             </tr>
                                             <tr>

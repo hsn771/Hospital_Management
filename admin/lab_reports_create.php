@@ -26,7 +26,7 @@
                             <h4 class="header-title">Lab Reports Form</h4>
                             <form method="post" enctype="multipart/form-data" action="">
                                 <div class="form-group">
-                                    <label for="patient_id">Patient </label>
+                                    <label for="patient_id">Patient</label>
                                     <select class="form-control" id="patient_id" name="patient_id">
                                         <?php
                                         $res = $mysqli->common_select('patients');
@@ -39,10 +39,10 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="gender">Staff</label>
+                                    <label for="gender">Doctor</label>
                                     <select class="form-control" id="staff_id" name="staff_id">
                                         <?php
-                                        $res = $mysqli->common_select('staff');
+                                        $res = $mysqli->common_select('user');
                                         if (!$res['error']) {
                                             foreach ($res['data'] as $key => $value) {
                                                 echo '<option value="' . $value->id . '">' . $value->name . '</option>';
@@ -53,8 +53,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="Test Type">Test Type</label>
-                                    <input type="text" class="form-control" id="test_type" name="test_type"
-                                        aria-describedby="emailHelp">
+                                    <select class="form-control" id="test_type" name="test_type">
+                                        <?php
+                                        $res = $mysqli->common_select('test');
+                                        if (!$res['error']) {
+                                            foreach ($res['data'] as $key => $value) {
+                                                echo '<option value="' . $value->name . '">' . $value->name . '</option>';
+                                                }
+                                            }
+                                        ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="Sample Collected Date">Sample Collected Date</label>

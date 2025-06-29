@@ -60,13 +60,6 @@
                         </ul>
                     </li>
                     <li>
-                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Room Type</span></a>
-                        <ul class="collapse">
-                            <li><a href="rooms_type.php">List</a></li>
-                            <li><a href="rooms_type_create.php">Add New</a></li>
-                        </ul>
-                    </li>
-                    <li>
                         <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Prescriptions</span></a>
                         <ul class="collapse">
                             <li><a href="prescriptions.php">List</a></li>
@@ -86,21 +79,7 @@
                             <li><a href="test_create.php">Add New</a></li>
                         </ul>
                     </li>
-                    <li>
-                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Staff</span></a>
-                        <ul class="collapse">
-                            <li><a href="staff.php">List</a></li>
-                            <li><a href="staff_create.php">Add New</a></li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="javascript:void(0)" aria-expanded="true"><i class="ti-pie-chart"></i><span>Schedules</span></a>
-                        <ul class="collapse">
-                            <li><a href="schedules.php">List</a></li>
-                            <li><a href="schedules_create.php">Add New</a></li>
-                        </ul>
-                    </li>
-                </ul>
+                    </ul>
             </nav>
         </div>
     </div>

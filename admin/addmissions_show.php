@@ -37,11 +37,11 @@
                                     <table class="table table-bordered text-center">
                                         <thead class="text-uppercase">
                                             <tr>
-                                                <th scope="col">Patient Id</th>
+                                                <th scope="col">Patient</th>
                                                 <td><?= $addmissions->patient_id ?></td>
                                             </tr>
                                             <tr>
-                                                <th scope="col">Staff Id</th>
+                                                <th scope="col">Doctor</th>
                                                 <td><?= $addmissions->staff_id ?></td>
                                             </tr>
                                             <tr>
@@ -67,10 +67,6 @@
                                             <tr>
                                                 <th scope="col">Treatment Plan</th>
                                                 <td><?= $addmissions->treatment_plan ?></td>
-                                            </tr>
-                                            <tr>
-                                                <th scope="col">Nurse Id</th>
-                                                <td><?= $addmissions->nurse_id ?></td>
                                             </tr>
                                             <tr>
                                                 <th scope="col">Notes</th>

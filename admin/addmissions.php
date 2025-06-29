@@ -30,8 +30,8 @@
                                         <thead class="text-uppercase">
                                             <tr>
                                                 <th scope="col">ID</th>
-                                                <th scope="col">Patient Name</th>
-                                                <th scope="col">Doctor's Name</th>
+                                                <th scope="col">Patient</th>
+                                                <th scope="col">Doctor</th>
                                                 <th scope="col">Room Number</th>
                                                 <th scope="col">Admission Date</th>
                                                 <th scope="col">Discharge Date</th>

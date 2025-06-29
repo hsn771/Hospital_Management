@@ -36,7 +36,7 @@
                                 <div class="form-group">
                                     <label for="full_name">Full Name</label>
                                     <input type="full_name" class="form-control" id="full_name" value="<?= $data->full_name ?>" name="full_name"
-                                        aria-describedby="emailHelp" placeholder="full name">
+                                        aria-describedby="emailHelp" placeholder="Full Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="gender">Gender</label>
@@ -49,12 +49,12 @@
                                 <div class="form-group">
                                     <label for="date_of_birth">Date of Birth</label>
                                     <input type="date" class="form-control" id="date_of_birth" value="<?= $data->date_of_birth ?>" name="date_of_birth"
-                                        aria-describedby="emailHelp" placeholder="date of birth">
+                                        aria-describedby="emailHelp" placeholder="Date of Birth">
                                 </div>
                                 <div class="form-group">
                                     <label for="phone">Phone No</label>
                                     <input type="text" class="form-control" id="phone" value="<?= $data->phone ?>" name="phone"
-                                        aria-describedby="emailHelp" placeholder="phone">
+                                        aria-describedby="emailHelp" placeholder="Phone No">
                                 </div>
                                 <div class="form-group">
                                     <label for="email">Email</label>
@@ -64,37 +64,37 @@
                                 <div class="form-group">
                                     <label for="address">Address</label>
                                     <input type="text" class="form-control" id="address" value="<?= $data->address ?>" name="address"
-                                        placeholder="address">
+                                        placeholder="Address">
                                 </div>
                                 <div class="form-group">
                                     <label for="emergency_contact">Emergency Contact</label>
                                     <input type="text" class="form-control" id="emergency_contact" value="<?= $data->emergency_contact ?>"
-                                        name="emergency_contact" placeholder="emergency_contact">
+                                        name="emergency_contact" placeholder="Emergency Contact">
                                 </div>
                                 <div class="form-group">
                                     <label for="nid_passport">NID/Passport No</label>
                                     <input type="text" class="form-control" id="nid_passport" value="<?= $data->nid_passport ?>" name="nid_passport"
-                                        placeholder="nid_passport">
+                                        placeholder="NID/Passport No">
                                 </div>
                                 <div class="form-group">
                                     <label for="insurance_provider">Insurance Id</label>
                                     <input type="text" class="form-control" id="insurance_id" value="<?= $data->insurance_id ?>"
-                                        name="insurance_id" placeholder="insurance_id">
+                                        name="insurance_id" placeholder="Insurance Id">
                                 </div>
                                 <div class="form-group">
                                     <label for="allergies">Allergies</label>
                                     <input type="text" class="form-control" id="allergies" value="<?= $data->allergies ?>" name="allergies"
-                                        placeholder="allergies">
+                                        placeholder="Allergies">
                                 </div>
                                 <div class="form-group">
                                     <label for="registration_date">Registration Date</label>
-                                    <input type="data" class="form-control" id="registration_date" value="<?= $data->registration_date ?>"
-                                        name="registration_date" placeholder="registration_date">
+                                    <input type="date" class="form-control" id="registration_date" value="<?= $data->registration_date ?>"
+                                        name="registration_date" placeholder="Registration Date">
                                 </div>
                                 <div class="form-group">
                                     <label for="profile_image">Profile Image</label>
                                     <input type="file" class="form-control" id="profile_image" value="<?= $data->profile_image ?>" name="profile_image"
-                                        placeholder="profile_image">
+                                        placeholder="Profile Image">
                                 </div>
                                 <div class="form-group">
                                     <label for="marital_status">Marital Status</label>
@@ -107,25 +107,25 @@
                                 <div class="form-group">
                                     <label for="occupation">Occupation</label>
                                     <input type="text" class="form-control" id="occupation" value="<?= $data->occupation ?>" name="occupation"
-                                        placeholder="occupation">
+                                        placeholder="Occupation">
                                 </div>
                                 <div class="form-group">
                                     <label for="nationality">Nationality</label>
                                     <input type="text" class="form-control" id="nationality" value="<?= $data->nationality ?>" name="nationality"
-                                        placeholder="nationality">
+                                        placeholder="Nationality">
                                 </div>
                                 <div class="form-group">
                                     <label for="guardian_name">Guardian Name</label>
                                     <input type="text" class="form-control" id="guardian_name" value="<?= $data->guardian_name ?>" name="guardian_name"
-                                        placeholder="guardian_name">
+                                        placeholder="Guardian Name">
                                 </div>
                                 <div class="form-group">
                                     <label for="guardian_relation">Guardian Relation</label>
                                     <input type="text" class="form-control" id="guardian_relation" value="<?= $data->guardian_relation ?>"
-                                        name="guardian_relation" placeholder="guardian_relation">
+                                        name="guardian_relation" placeholder="Guardian Relation">
                                 </div>
                                 <div class="form-group">
-                                    <label for="guardian_relation">Division</label>
+                                    <label for="division_id">Division</label>
                                     <select class="form-control" id="division_id" name="division_id" onchange="districtList(this.value)">
                                         <option value="">Select Division</option>
                                         <?php

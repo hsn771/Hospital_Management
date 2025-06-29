@@ -39,7 +39,7 @@
                                         $res = $mysqli->common_select('patients');
                                         if (!$res['error']) {
                                             foreach ($res['data'] as $key => $value) {
-                                                echo '<option value="' . $value->id . '">' . $value->full_name . '</option>';
+                                                echo '<option value="' . $value->id . '"' . ($value->id == $data->patient_id ? ' selected' : '') . '>' . $value->full_name . '</option>';
                                                 }
                                             }
                                         ?>
@@ -52,7 +52,7 @@
                                         $res = $mysqli->common_select('user');
                                         if (!$res['error']) {
                                             foreach ($res['data'] as $key => $value) {
-                                                echo '<option value="' . $value->id . '">' . $value->name . '</option>';
+                                                echo '<option value="' . $value->id . '"' . ($value->id == $data->staff_id ? ' selected' : '') . '>' . $value->name . '</option>';
                                                 }
                                             }
                                         ?>
@@ -60,8 +60,16 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="Test Type">Test Type</label>
-                                    <input type="text" class="form-control" id="test_type" value="<?= $data->test_type ?>" name="test_type"
-                                        aria-describedby="emailHelp">
+                                    <select class="form-control" id="test_type" name="test_type" value="<?= $data->test_type ?>">
+                                        <?php
+                                        $res = $mysqli->common_select('test');
+                                        if (!$res['error']) {
+                                            foreach ($res['data'] as $key => $value) {
+                                                echo '<option value="' . $value->name . '"' . ($value->name == $data->test_type ? ' selected' : '') . '>' . $value->name . '</option>';
+                                                }
+                                            }
+                                        ?>
+                                    </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="Sample Collected Date">Sample Collected Date</label>

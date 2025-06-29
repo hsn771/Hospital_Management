@@ -23,20 +23,20 @@
                 <div class="col-lg-12 mt-5">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">Details</h4>
+                            <h4 class="header-title">List</h4>
                             <div class="single-table">
                                 <div class="table-responsive">
                                     <table class="table table-bordered text-center">
                                         <thead class="text-uppercase">
                                             <tr>
                                                 <th scope="col">ID</th>
-                                                <th scope="col">patient_id</th>
+                                                <th scope="col">Patient</th>
                                                 <th scope="col">Doctor</th>
-                                                <th scope="col">appointment_date</th>
-                                                <th scope="col">start_time</th>
-                                                <th scope="col">purpose</th>
-                                                <th scope="col">notes</th>
-                                                <th scope="col">Serial no</th>
+                                                <th scope="col">Appointment Date</th>
+                                                <th scope="col">Start Time</th>
+                                                <th scope="col">Purpose</th>
+                                                <th scope="col">Notes</th>
+                                                <th scope="col">Serial No</th>
                                                 <th scope="col">Action</th>
                                             </tr>
                                         </thead>
